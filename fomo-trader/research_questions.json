@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What round-trip cost (entry + exit slippage, fees, failed attempts) do the paper bot's own fills show by ticket size across $5-$50?",
+      "registered": "2026-09-27",
+      "status": "open"
+    },
+    {
+      "id": "Q2",
+      "question": "What share of BSC (four.meme / PancakeSwap v2) tokens that pass the bot's screens carry transfer taxes or honeypot behavior?",
+      "registered": "2026-09-27",
+      "status": "open"
+    },
+    {
+      "id": "Q3",
+      "question": "How fast does copy-trading edge decay with follower delay (slots / seconds after the leader fill)?",
+      "registered": "2026-09-27",
+      "status": "open"
+    },
+    {
+      "id": "Q4",
+      "question": "Does riding wash / bump-bot momentum beat filtering it, net of costs?",
+      "registered": "2026-09-27",
+      "status": "open"
+    },
+    {
+      "id": "Q5",
+      "question": "Is there a calibrated pullback definition with positive forward return net of costs on fresh tokens?",
+      "registered": "2026-09-27",
+      "status": "open"
+    },
+    {
+      "id": "Q6",
+      "question": "Do any pre-registered regime definitions improve results out of sample?",
+      "registered": "2026-09-27",
+      "status": "open"
+    },
+    {
+      "id": "Q7",
+      "question": "What do DLMM position and bin-array rent actually cost at small scale ($7-$100), and can a $7 ticket fund a position at all?",
+      "registered": "2026-09-27",
+      "status": "open"
+    },
+    {
+      "id": "Q8",
+      "question": "Which exit rule (fixed stop, 2x auto-TP, time stop, trailing stop) improves net expectancy against the baseline, with full costs?",
+      "registered": "2026-09-27",
+      "status": "open"
+    }
+  ]
+}

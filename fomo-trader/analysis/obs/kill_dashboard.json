@@ -1,0 +1,178 @@
+{
+  "schema": "obs_kill_dashboard/v1",
+  "generated_at": "2026-09-28T16:06:01Z",
+  "source_report": "~/workspace/research_notes/copy-trading-track-records-20260927-2020/report.md",
+  "journal": "/home/hatch/workspace/fomo-trader/runs/paper-1h/trades.jsonl",
+  "journal_stats": {
+    "lines": 323,
+    "corrupt_lines": 0,
+    "non_object_lines": 0,
+    "duplicates_dropped": 0,
+    "missing": false,
+    "records": 323,
+    "closes_priced": 163,
+    "closes_unpriced": 0,
+    "closes_priced_with_sol_fallback": 24,
+    "entries": 160
+  },
+  "criteria": [
+    {
+      "id": 1,
+      "key": "net_pnl",
+      "rule": "Net P&L <= 0 after all costs over >= 100 trades",
+      "status": "TRIPPED",
+      "evaluable": true,
+      "value": {
+        "n_closes": 163,
+        "net_usd": -187.26
+      },
+      "threshold": {
+        "net_usd_le": 0,
+        "min_trades": 100
+      },
+      "note": "Paper net excludes bot fees, priority fees and failed attempts (not journaled), so it overstates real net."
+    },
+    {
+      "id": 2,
+      "key": "round_trip_cost",
+      "rule": "Median round-trip cost > 15% of the $7 ticket",
+      "status": "ok",
+      "evaluable": true,
+      "value": {
+        "n_observations": 93,
+        "median_cost_fraction": -0.0109
+      },
+      "threshold": {
+        "median_cost_fraction_gt": 0.15,
+        "min_observations": 20
+      },
+      "note": "Proxy: entry-side slip vs signal only (a lower bound on round-trip cost); exit slippage and fees are not journaled."
+    },
+    {
+      "id": 3,
+      "key": "failed_tx_or_delay",
+      "rule": "Failed-tx rate > 10% or median inclusion delay > 2 slots",
+      "status": "ok",
+      "evaluable": false,
+      "value": {
+        "failed_tx_rate": null,
+        "median_inclusion_delay_ms": null,
+        "median_entry_latency_ms_info": 1697.0
+      },
+      "threshold": {
+        "failed_tx_rate_gt": 0.1,
+        "median_inclusion_delay_ms_gt": 700
+      },
+      "note": "Not measurable in paper mode (no transactions are sent). entry_latency_ms is signal->commit, not inclusion delay; shown for information only."
+    },
+    {
+      "id": 4,
+      "key": "wr_pf",
+      "rule": "Win rate < 30% AND profit factor < 0.5 sustained over 100 trades",
+      "status": "TRIPPED",
+      "evaluable": true,
+      "value": {
+        "window": 100,
+        "win_rate": 0.27,
+        "profit_factor": 0.2885
+      },
+      "threshold": {
+        "win_rate_lt": 0.3,
+        "profit_factor_lt": 0.5,
+        "window_trades": 100
+      },
+      "note": "Last 100 closes in journal order; profit factor is null when there are no losses."
+    },
+    {
+      "id": 5,
+      "key": "outlier_dependence",
+      "rule": "Any \"profitable\" variant depends on < 5 outlier trades",
+      "status": "ok",
+      "evaluable": false,
+      "value": {
+        "ALL": {
+          "n": 163,
+          "net_usd": -187.26,
+          "winners_to_erase_net": null
+        }
+      },
+      "threshold": {
+        "winners_to_erase_net_lt": 5
+      },
+      "note": "Variants = ALL plus each research_question tag. Not evaluable while no variant is profitable (criterion 1 governs)."
+    },
+    {
+      "id": 6,
+      "key": "rug_gap_loss_share",
+      "rule": "Rug-gap exits account for > 50% of gross losses with no filter reducing them",
+      "status": "TRIPPED",
+      "evaluable": true,
+      "value": {
+        "n_losses": 114,
+        "n_rug_gap_losses": 43,
+        "gross_loss_usd": 278.6,
+        "rug_gap_loss_usd": 196.19,
+        "share": 0.7042
+      },
+      "threshold": {
+        "share_gt": 0.5,
+        "rug_gap_exit_peak_ratio_lt": 0.4,
+        "min_losses": 10
+      },
+      "note": "Loss share only. The 'no filter reducing them' clause needs offline counterfactuals (analysis/x1_ruggap)."
+    },
+    {
+      "id": 7,
+      "key": "bsc_round_trip_cost",
+      "rule": "BSC leg: median round-trip tax+fee+slippage > 15%",
+      "status": "ok",
+      "evaluable": true,
+      "value": {
+        "n_observations": 93,
+        "median_cost_fraction": -0.0109
+      },
+      "threshold": {
+        "median_cost_fraction_gt": 0.15,
+        "min_observations": 20
+      },
+      "note": "Proxy: BSC entry-side slip vs signal only; transfer taxes, exit slippage and fees are not journaled (lower bound)."
+    },
+    {
+      "id": 8,
+      "key": "is_oos_60d",
+      "rule": "60-day review: no variant passes IS->OOS sign test",
+      "status": "ok",
+      "evaluable": false,
+      "value": {
+        "span_days": 4.17,
+        "variants": {
+          "ALL": {
+            "is_n": 97,
+            "oos_n": 66,
+            "is_net_usd": -101.61,
+            "oos_net_usd": -85.65,
+            "passes": false
+          }
+        }
+      },
+      "threshold": {
+        "min_span_days": 60,
+        "is_fraction": 0.6
+      },
+      "note": "IS = first 60% of each variant's closes in journal order. Shut down rather than re-tune when tripped."
+    }
+  ],
+  "summary": {
+    "tripped": [
+      1,
+      4,
+      6
+    ],
+    "not_evaluable": [
+      3,
+      5,
+      8
+    ],
+    "program_killed": true
+  }
+}

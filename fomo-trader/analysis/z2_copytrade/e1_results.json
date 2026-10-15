@@ -1,0 +1,14 @@
+{
+  "delays_s": [
+    5,
+    15,
+    30,
+    60,
+    120
+  ],
+  "global": {},
+  "seed": 20260927,
+  "source_url": "https://github.com/d3ad-e/solana-sniper-bot/blob/HEAD/CLAUDE.md",
+  "status": "not_runnable",
+  "wallets": {}
+}

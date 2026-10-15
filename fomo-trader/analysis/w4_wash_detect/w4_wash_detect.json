@@ -1,0 +1,7 @@
+{
+  "ship_recommend": false,
+  "thresholds": {
+    "solana": {"wash_proxy": 0.0, "min_volume_usd": 0.0},
+    "bsc": {"wash_proxy": 0.0, "min_volume_usd": 0.0}
+  }
+}

@@ -1,0 +1,186 @@
+import axios, { AxiosError } from 'axios';
+import { load } from 'cheerio';
+import { HttpsProxyAgent } from 'https-proxy-agent';
+import { logger } from '../../../utils/system/logger';
+import { settingsCache } from '../../../utils/cache';
+import {
+  getHeaders,
+  detectBotChallenge,
+  PageNotAvailableError
+} from '../transport';
+import { RetailerConfig } from '../../../models';
+import { withRetry } from '../../../utils/system/retry';
+import { scrubUrlCredentials } from '../../../utils/system/logging/scrubber';
+
+export interface StandardAcquisitionOptions {
+  url: string;
+  domain: string;
+  domainConfig?: RetailerConfig;
+  extractionSteps: string[];
+  requestId?: string;
+}
+
+export async function acquireStandardHtml(options: StandardAcquisitionOptions): Promise<string> {
+  const { url, domain, domainConfig, extractionSteps, requestId } = options;
+  const useProxy = domainConfig?.use_proxy || false;
+
+  const timeoutSetting = await settingsCache.get('scraper_timeout');
+  const timeout = timeoutSetting ? parseInt(timeoutSetting, 10) : 30000;
+  const headers = await getHeaders(domainConfig?.user_agent || undefined);
+
+  const currentProxy = useProxy ? await settingsCache.getScraperProxy() : undefined;
+  const httpsAgent = currentProxy ? new HttpsProxyAgent(currentProxy) : undefined;
+  
+  if (currentProxy) {
+    // Scrubbed at the source, not left to the logger (issue #165).
+    //
+    // The logger does scrub `details`, so the console and system_logs were
+    // safe. extractionSteps is not only logged: it is attached to the scrape
+    // result and returned as `trace` in the admin retailer-test response
+    // (routes/admin/retailers.ts), which never passes through the logger at
+    // all. A proxy configured as http://user:pass@host therefore left its
+    // password in an HTTP response body.
+    //
+    // Fixing it here rather than at each consumer means every present and
+    // future path is covered by construction: the secret never enters the
+    // array. CLAUDE.md's rule is not to write credentials in the first place,
+    // and the scrubber is a backstop rather than a licence.
+    extractionSteps.push(`Request | Proxy | Using: ${scrubUrlCredentials(currentProxy)}`);
+  }
+  extractionSteps.push(`Request | HTTP | UA: ${headers['User-Agent'] ? 'Yes' : 'No'} | Proxy: ${currentProxy ? 'Yes' : 'No'}`);
+
+  let response;
+  const start = Date.now();
+  try {
+    response = await withRetry(
+      () => axios.get(url, { headers, timeout, httpsAgent }),
+      { maxRetries: 1 },
+      'Axios',
+      'Scraper'
+    );
+    const latency = Date.now() - start;
+    const status = response.status;
+    const finalUrl = response.request?.res?.responseUrl || response.request?.url || url;
+    logger.info(`Scraper | Axios | [${requestId || 'N/A'}] | Success | Status: ${status} | Url: ${finalUrl} | Latency: ${latency}ms`, 'Scraper', {
+      requestId,
+      latency,
+      status,
+      url,
+      finalUrl,
+      proxy: currentProxy ? true : false,
+      domain
+    });
+  } catch (err: any) {
+    const isProxyErr = currentProxy && (
+      err.code === 'ECONNREFUSED' || 
+      err.code === 'EHOSTUNREACH' || 
+      err.code === 'ENETUNREACH' || 
+      err.code === 'ECONNRESET' ||
+      err.message?.toLowerCase().includes('proxy') ||
+      err.message?.toLowerCase().includes('tunnel')
+    );
+
+    if (isProxyErr) {
+      extractionSteps.push(`Request | Proxy Fallback | Proxy failed (${err.code || 'Error'}). Retrying without proxy.`);
+      logger.warn(`Scraper | Axios | [${requestId || 'N/A'}] | Proxy connection failed (${err.message}). Retrying without proxy.`, 'Scraper', { requestId, domain });
+      
+      const fallbackStart = Date.now();
+      try {
+        response = await withRetry(
+          () => axios.get(url, { headers, timeout, httpsAgent: undefined }),
+          { maxRetries: 2 },
+          'Axios-Fallback',
+          'Scraper'
+        );
+        const latency = Date.now() - fallbackStart;
+        const status = response.status;
+        const finalUrl = response.request?.res?.responseUrl || response.request?.url || url;
+        logger.info(`Scraper | Axios | [${requestId || 'N/A'}] | Success (Proxy Fallback) | Status: ${status} | Url: ${finalUrl} | Latency: ${latency}ms`, 'Scraper', {
+          requestId,
+          latency,
+          status,
+          url,
+          finalUrl,
+          proxy: false,
+          domain
+        });
+      } catch (fallbackErr: any) {
+        handleAxiosError(fallbackErr, url, extractionSteps, requestId);
+      }
+    } else {
+      handleAxiosError(err, url, extractionSteps, requestId);
+    }
+  }
+
+  if (!response) {
+    throw new Error('Request failed to yield a response');
+  }
+
+  const finalUrl = response.request?.res?.responseUrl || response.request?.url;
+  if (finalUrl) {
+    validateUrl(url, finalUrl, requestId);
+  }
+
+  let html = response.data;
+  if (typeof html !== 'string') html = JSON.stringify(html);
+  return html;
+}
+
+function handleAxiosError(err: any, url: string, extractionSteps: string[], requestId?: string) {
+  const status = err.response?.status;
+  const errCode = err.code || (status ? `HTTP ${status}` : 'Unknown');
+  logger.debug(`Scraper | Axios | [${requestId || 'N/A'}] | Error Code: ${errCode}`, 'Scraper', { requestId });
+  
+  if (status === 404 || status === 410) {
+    // Bot walls (Akamai, Cloudflare, ...) sometimes serve their block page
+    // with a 404 status. Inspect the body before declaring the page gone —
+    // a blocked scrape must be treated as a challenge, not a deleted product.
+    const body = typeof err.response?.data === 'string' ? err.response.data : '';
+    if (body) {
+      try {
+        const challenge = detectBotChallenge(body, load(body));
+        if (challenge) {
+          extractionSteps.push(`Request | Challenge | ${challenge} served as HTTP ${status}`);
+          throw new BotChallengeError(`${challenge} (served as HTTP ${status})`);
+        }
+      } catch (detectErr) {
+        if (detectErr instanceof BotChallengeError) throw detectErr;
+        // A body we cannot parse is not evidence the page is gone or blocked;
+        // fall through to the plain 404 handling.
+      }
+    }
+    throw new PageNotAvailableError(`Page not found (${status}): ${url}`, status === 410 ? 'http_410' : 'http_404');
+  }
+
+  if (err instanceof AxiosError && status === 403) {
+    throw new BotChallengeError('HTTP 403 Forbidden');
+  } else {
+    extractionSteps.push(`Request | Error | ${errCode}: ${err.message}`);
+    throw err;
+  }
+}
+
+function validateUrl(originalUrl: string, finalUrl: string, requestId?: string) {
+  try {
+    const finalObj = new URL(finalUrl);
+    const originalObj = new URL(originalUrl);
+    const finalPath = finalObj.pathname.toLowerCase();
+    const errorPatterns = ['/404', '/not-found', '/error', '/search', '/unsupported'];
+    const isErrorPath = errorPatterns.some(pattern => finalPath.startsWith(pattern));
+    
+    if (isErrorPath || (originalObj.pathname.length > 5 && (finalPath === '/' || finalPath === ''))) {
+      logger.warn(`Scraper | Axios | [${requestId || 'N/A'}] | Soft 404 | Redirected from ${originalUrl} to ${finalUrl}`, 'Scraper', { requestId });
+      throw new PageNotAvailableError(`Soft 404: Redirected to error or root page: ${finalUrl}`, 'redirected_to_error_page');
+    }
+  } catch (urlErr) {
+    if (urlErr instanceof PageNotAvailableError) throw urlErr;
+  }
+}
+
+export class BotChallengeError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'BotChallengeError';
+  }
+}
+

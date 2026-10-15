@@ -1,0 +1,205 @@
+{
+ "apply": "Manual, only if verdict == 'pass': copy 'weights' into the 'allocator' section of runs/paper-1h/config.json, set allocator.mode to 'live', restart the bot. This script never edits the config.",
+ "costs": {
+  "entry_bps": 100.0,
+  "exit_bps": 300.0,
+  "fee_usd": {
+   "bsc": 0.2,
+   "solana": 0.6
+  }
+ },
+ "gate": {
+  "chain_concentration": {
+   "counts": {
+    "bsc": 218,
+    "solana": 28
+   },
+   "edges": {
+    "bsc": 18.56,
+    "solana": -1.35
+   },
+   "evaluable": true,
+   "share": 1.0
+  },
+  "checks": [
+   {
+    "name": "is_edge_positive",
+    "passed": true,
+    "threshold": "> 0",
+    "value": 0.0799
+   },
+   {
+    "name": "oos_edge_positive",
+    "passed": true,
+    "threshold": "> 0",
+    "value": 0.0469
+   },
+   {
+    "name": "oos_retention",
+    "passed": false,
+    "threshold": ">= 0.60",
+    "value": 0.587
+   },
+   {
+    "name": "oos_decay",
+    "passed": true,
+    "threshold": "<= 0.70",
+    "value": 0.413
+   },
+   {
+    "name": "is_win_rate_not_overfit",
+    "passed": true,
+    "threshold": "<= 0.90",
+    "value": 0.3095
+   },
+   {
+    "name": "edge_not_single_chain",
+    "passed": false,
+    "threshold": "<= 0.80 (if evaluable)",
+    "value": 1.0
+   },
+   {
+    "name": "edge_not_single_time_regime",
+    "passed": true,
+    "threshold": "<= 0.80 (if evaluable)",
+    "value": 0.7196
+   }
+  ],
+  "decay": 0.413,
+  "is": {
+   "alloc_max_dd_usd": 239.74,
+   "alloc_net_usd": -239.74,
+   "alloc_per_trade": -1.3938,
+   "alloc_win_rate": 0.3095,
+   "avg_multiplier_taken": 1.1874,
+   "base_max_dd_usd": 253.48,
+   "base_net_usd": -253.48,
+   "base_per_trade": -1.4737,
+   "base_win_rate": 0.3023,
+   "edge_per_trade": 0.0799,
+   "n": 172,
+   "n_taken": 168
+  },
+  "is_fit_info": {
+   "feature_coverage": {
+    "buy_count_15m": 125,
+    "buy_sell_ratio": 166,
+    "chain_bsc": 144,
+    "entry_latency_sec": 126,
+    "holder_top1_pct": 0,
+    "holder_top5_pct": 0,
+    "liquidity_usd": 172,
+    "mcap_usd": 126,
+    "sell_count_15m": 124,
+    "signal_gain_pct": 172,
+    "signal_to_fill_slippage_pct": 126,
+    "volume_15m_usd": 126
+   },
+   "n": 172,
+   "raw_intercept": -0.6533,
+   "recency_weight_max": 1.0,
+   "recency_weight_min": 0.7926,
+   "weighted_win_rate": 0.2998
+  },
+  "is_fit_weights": {
+   "buy_count_15m": -0.1001,
+   "buy_sell_ratio": -0.1915,
+   "chain_bsc": -0.2121,
+   "entry_latency_sec": -0.0812,
+   "holder_top1_pct": 0.0,
+   "holder_top5_pct": 0.0,
+   "intercept": 0.2099,
+   "liquidity_usd": -0.1435,
+   "mcap_usd": -0.0949,
+   "sell_count_15m": -0.0093,
+   "signal_gain_pct": -0.3188,
+   "signal_to_fill_slippage_pct": -0.3613,
+   "volume_15m_usd": -0.1047
+  },
+  "is_window": [
+   "2026-09-24 10:56:20",
+   "2026-09-29 03:38:05"
+  ],
+  "n": 246,
+  "n_is": 172,
+  "n_oos": 74,
+  "oos": {
+   "alloc_max_dd_usd": 67.29,
+   "alloc_net_usd": -55.2,
+   "alloc_per_trade": -0.746,
+   "alloc_win_rate": 0.3514,
+   "avg_multiplier_taken": 1.1882,
+   "base_max_dd_usd": 65.87,
+   "base_net_usd": -58.67,
+   "base_per_trade": -0.7929,
+   "base_win_rate": 0.3514,
+   "edge_per_trade": 0.0469,
+   "n": 74,
+   "n_taken": 74
+  },
+  "oos_window": [
+   "2026-09-29 03:48:28",
+   "2026-09-30 08:21:20"
+  ],
+  "retention": 0.587,
+  "time_concentration": {
+   "counts": {
+    "0": 82,
+    "1": 82,
+    "2": 82
+   },
+   "edges": {
+    "0": 12.38,
+    "1": 1.63,
+    "2": 3.2
+   },
+   "evaluable": true,
+   "share": 0.7196
+  },
+  "verdict": "fail"
+ },
+ "generated_at": "2026-09-30 08:22:42 UTC",
+ "half_life_days": 14.0,
+ "journal_stats": {
+  "closes": 270,
+  "entries": 267,
+  "malformed_lines": 0,
+  "no_entry": 3,
+  "no_ts": 0,
+  "unpriced": 24,
+  "with_allocator_fields": 167
+ },
+ "recency": {
+  "diff_usd": 0.6381,
+  "evaluable": true,
+  "full_avg_usd": -0.7656,
+  "older_avg_usd": -0.9575,
+  "older_n": 172,
+  "older_win_rate": 0.3023,
+  "recency_concentrated": true,
+  "recent_avg_usd": -0.3195,
+  "recent_better": true,
+  "recent_n": 74,
+  "recent_win_rate": 0.3514,
+  "z": 2.0
+ },
+ "report": "allocator_report_20260930T082242Z.md",
+ "take_threshold": 0.35,
+ "verdict": "fail",
+ "weights": {
+  "buy_count_15m": -0.1362,
+  "buy_sell_ratio": -0.1445,
+  "chain_bsc": -0.1469,
+  "entry_latency_sec": 0.0045,
+  "holder_top1_pct": 0.0,
+  "holder_top5_pct": 0.0,
+  "intercept": 0.1152,
+  "liquidity_usd": -0.0907,
+  "mcap_usd": -0.0819,
+  "sell_count_15m": -0.0657,
+  "signal_gain_pct": -0.2631,
+  "signal_to_fill_slippage_pct": -0.3558,
+  "volume_15m_usd": -0.1299
+ },
+ "weights_note": "Full-journal recency-weighted fit. The gate validates the same procedure refit on IS only (is_fit_weights)."
+}

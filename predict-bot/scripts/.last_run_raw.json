@@ -1,0 +1,47 @@
+{
+ "kalshi_requests": {
+  "attempts": 9,
+  "retries": 0
+ },
+ "ok": true,
+ "as_of_utc": "2026-10-07T13:55:45.515811+00:00",
+ "notes": [
+  "sweep_cache=stale age_s=937 markets=53470 refresh_spawned=False",
+  "kalshi_same_day_markets=53479",
+  "live_15m_crypto_windows=9",
+  "polymarket_same_day_liquid=205",
+  "exit_check_open_evaluated=0_exits"
+ ],
+ "signals_total": 0,
+ "signals_new": 0,
+ "new_signals": [],
+ "exits_new": 0,
+ "exits": [],
+ "graded_new": 0,
+ "new_grades": [],
+ "accuracy": {
+  "graded": 50,
+  "wins": 34,
+  "win_rate": 0.68,
+  "pnl_per_dollar_staked": 0.0025,
+  "note": "settlement per Kalshi's published result only (legacy Kraken-proxy rows excluded); gross of fees",
+  "mean_taken_price": 0.678,
+  "post_filter": {
+   "graded": 50,
+   "wins": 34,
+   "win_rate": 0.68,
+   "mean_taken_price": 0.678,
+   "pnl_per_dollar_staked": 0.0025,
+   "pnl_1usd_stake_gross": -0.0094,
+   "pnl_1usd_stake_net": -0.037
+  },
+  "pnl_1usd_stake_gross": -0.0094,
+  "pnl_1usd_stake_net": -0.037,
+  "no_mid_rows": 0,
+  "win_rate_priced": 0.68,
+  "mean_calibrated_probability": 0.717,
+  "mean_paper_mid_payoff": 0.002,
+  "independent_windows": 46,
+  "entry_policy_cohort": "post-agreement"
+ }
+}

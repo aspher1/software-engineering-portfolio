@@ -1,0 +1,981 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Light theme (the base set; the dark blocks below override it).
+   Two rules keep this palette honest:
+   1. `--background` is the page canvas *and* the recessed fill inside a
+      surface (disabled inputs, hover rows, dropdown triggers). `--surface` is
+      everything that sits above it: cards, the navbar, modals, dropdowns.
+      They must stay tonally apart or the whole hierarchy collapses into one
+      sheet of white -- which is exactly what it used to do at #f8fafc/#ffffff,
+      a 1.05:1 step nobody can see.
+   2. Accents are used as *text* as often as they are used as button fills
+      (`--danger` on a menu item, `--secondary` on a stock badge), so each one
+      has to clear 4.5:1 against both --surface and --background, not just
+      look correct behind white label text. */
+:root {
+  color-scheme: light dark;
+  --primary: #4f46e5;
+  --primary-rgb: 79, 70, 229;
+  --primary-dark: #4338ca;
+  --secondary: #047857;
+  --danger: #dc2626;
+  --danger-dark: #b91c1c;
+  --background: #eef2f7;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --text-muted: #5a6880;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.06);
+  --chart-grid: #e2e8f0;
+  --chart-text: #64748b;
+}
+
+/* An explicit light choice must also pin the UA colour scheme. The `only` keyword
+   explicitly opts out of Chromium/Blink Auto-Dark / Forced-Dark heuristic inversions
+   when the user intentionally selected a light theme. */
+:root[data-theme="light"] {
+  color-scheme: only light;
+}
+
+/* Dark theme variables */
+:root[data-theme="dark"] {
+  --primary: #818cf8;
+  --primary-rgb: 129, 140, 248;
+  --primary-dark: #6366f1;
+  --secondary: #34d399;
+  --danger: #f87171;
+  --danger-dark: #dc2626;
+  --background: #0f172a;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --border-strong: #475569;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --chart-grid: #334155;
+  --chart-text: #64748b;
+  color-scheme: only dark;
+}
+
+/* System dark preference - only apply if not explicitly set to light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --primary: #818cf8;
+    --primary-rgb: 129, 140, 248;
+    --primary-dark: #6366f1;
+    --secondary: #34d399;
+    --danger: #f87171;
+    --danger-dark: #dc2626;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --border-strong: #475569;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --chart-grid: #334155;
+    --chart-text: #64748b;
+    color-scheme: only dark;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  /* Buttons do not inherit colour from their ancestors by default; the UA gives
+     them `buttontext`, which follows the OS scheme rather than the app theme.
+     Icon buttons stroke with `currentColor`, so without this they disappear
+     whenever the two disagree. Every .btn variant sets its own colour. */
+  color: inherit;
+}
+
+input, button, select, textarea {
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  /* Inputs keep the --surface fill and take the stronger border: on a card
+     they are white-on-white, so the border is the only thing that says
+     "you can type here". --border is for dividing content, not for that. */
+  border: 1px solid var(--border-strong);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: var(--surface);
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  /* Follow the resolved app theme, not the OS, so select popups, date pickers
+     and autofill backgrounds match the surface they sit on. */
+  color-scheme: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.18);
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--background);
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-secondary:hover {
+  background-color: var(--background);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-dark);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Card styles */
+.card {
+  background: var(--surface);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.card-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Alert styles */
+.alert {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.alert-error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+[data-theme="dark"] .alert-error {
+  background-color: #450a0a;
+  color: #fca5a5;
+  border: 1px solid #7f1d1d;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+[data-theme="dark"] .alert-success {
+  background-color: #052e16;
+  color: #86efac;
+  border: 1px solid #166534;
+}
+
+/* Settings & Admin Layouts */
+.settings-container-new {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.settings-header-new {
+  margin-bottom: 2rem;
+}
+
+.settings-title-new {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0 0;
+}
+
+.settings-back-new {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.settings-sidebar-new {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.settings-nav-new {
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.settings-nav-item-new {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-weight: 500;
+  text-align: left;
+  transition: all 0.2s;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-nav-item-new:last-child {
+  border-bottom: none;
+}
+
+.settings-nav-item-new:hover {
+  background: var(--background);
+}
+
+.settings-nav-item-new.active {
+  background: var(--primary);
+  color: white;
+}
+
+.settings-card {
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+
+.settings-card--active {
+  border-left: 4px solid var(--primary);
+}
+
+.settings-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+:is([style*="display: flex"], .settings-card-header, .card-header) > .settings-card-title {
+  margin: 0;
+}
+
+.settings-panel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.settings-card-description {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Table Styles */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.users-table th {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.users-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.users-table tr:hover {
+  background: rgba(var(--primary-rgb), 0.05);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  /* The off state has to read as a control, not as a divider. */
+  background: var(--border-strong);
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.toggle-switch.active {
+  background: var(--primary);
+}
+
+.toggle-switch .toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: left 0.2s;
+}
+
+.toggle-switch.active .toggle-knob {
+  left: 22px;
+}
+
+.settings-mobile-select {
+display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Layout override -- issue #123.
+
+   Layout is chosen purely from viewport width; there is no user-agent sniffing
+   anywhere. That leaves one case with no way out: a high-DPR Android tablet
+   reports roughly 800 CSS px, and Chrome's "Request desktop site" only widens
+   the layout viewport to about 980px. Neither clears the 968px breakpoint, so
+   the mobile layout sticks however hard the user asks for the desktop one.
+
+   `data-layout` on <html> -- stamped by LayoutContext, beside `data-theme` --
+   is the explicit way out:
+
+     auto     no attribute at all. Every narrow rule below behaves exactly as
+              it did before this block existed.
+     desktop  the narrow rules are switched off and the body is held at a
+              desktop width, so a narrow window scrolls horizontally rather
+              than collapsing the layout.
+     mobile   each narrow block is mirrored outside its media query, the mirror
+              sitting immediately after the block it copies so cascade order
+              relative to everything that follows is unchanged.
+
+   Every guard is wrapped in :where(), which contributes no specificity. In
+   "auto" the cascade is therefore bit-for-bit what it was before.
+
+   Forcing desktop also rewrites the viewport meta (see LayoutContext): that is
+   what carries the override into stylesheets with their own breakpoints on a
+   phone or tablet. These guards are what make it work in a desktop browser,
+   where the meta tag is ignored.
+--------------------------------------------------------------------------- */
+:root[data-layout="desktop"] body {
+  /* Wide enough to clear every max-width breakpoint in the app (the widest is
+     1024px). Nothing sets overflow-x: hidden on html or body, so the document
+     simply scrolls sideways -- which is the point, not a defect. */
+  min-width: 1100px;
+}
+
+@media (max-width: 968px) {
+  :where(:root:not([data-layout="desktop"])) .settings-container-new {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-sidebar-new {
+    display: none;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-mobile-select {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-nav-new {
+    display: flex;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-nav-new::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-nav-item-new {
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+    padding: 1rem 1.5rem;
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-card {
+    padding: 1.5rem;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Forced-mobile mirror of the 968px block above. Placed here, not at the
+   end of the file, so the cascade order relative to what follows is
+   identical to the media block it mirrors. */
+:where(:root[data-layout="mobile"]) .settings-container-new {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+:where(:root[data-layout="mobile"]) .settings-sidebar-new {
+  display: none;
+}
+
+:where(:root[data-layout="mobile"]) .settings-mobile-select {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+:where(:root[data-layout="mobile"]) .settings-nav-new {
+  display: flex;
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+
+:where(:root[data-layout="mobile"]) .settings-nav-new::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+:where(:root[data-layout="mobile"]) .settings-nav-item-new {
+  border-bottom: none;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  padding: 1rem 1.5rem;
+  flex-shrink: 0;
+  width: auto;
+}
+
+:where(:root[data-layout="mobile"]) .settings-card {
+  padding: 1.5rem;
+}
+
+:where(:root[data-layout="mobile"]) .form-grid {
+  grid-template-columns: 1fr;
+}
+
+
+@media (max-width: 640px) {
+  :where(:root:not([data-layout="desktop"])) .settings-card {
+    padding: 1rem;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-actions {
+    flex-direction: column-reverse;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .settings-actions .btn {
+    width: 100%;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .mobile-hide {
+    display: none !important;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .mobile-scroll-hint {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-align: right;
+  }
+
+  /* Responsive Table-to-Card Transformation for Logs */
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table thead {
+    display: none;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table,
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table tbody,
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table tr,
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table td {
+    display: block;
+    width: 100%;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table tr {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table td {
+    border: none;
+    padding: 0;
+    text-align: left !important;
+  }
+
+  /* Create a header row inside the card for Checkbox + Level */
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table .log-select-cell {
+    display: inline-block;
+    width: auto;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table .log-level-cell {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table .log-message-cell {
+    margin: 0.75rem 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(var(--primary-rgb), 0.05);
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table .log-message-content {
+    white-space: normal !important;
+    word-break: break-word;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table .log-action-cell {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+
+  /* Handle details row in card mode */
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table tr.details-row {
+    margin-top: -1.25rem;
+    margin-bottom: 2rem;
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  :where(:root:not([data-layout="desktop"])) .responsive-log-table tr.details-row td {
+    padding: 0;
+  }
+}
+
+/* Forced-mobile mirror of the 640px block above. Placed here, not at the
+   end of the file, so the cascade order relative to what follows is
+   identical to the media block it mirrors. */
+:where(:root[data-layout="mobile"]) .settings-card {
+  padding: 1rem;
+}
+
+:where(:root[data-layout="mobile"]) .settings-actions {
+  flex-direction: column-reverse;
+}
+
+:where(:root[data-layout="mobile"]) .settings-actions .btn {
+  width: 100%;
+}
+
+:where(:root[data-layout="mobile"]) .mobile-hide {
+  display: none !important;
+}
+
+:where(:root[data-layout="mobile"]) .mobile-scroll-hint {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+/* Responsive Table-to-Card Transformation for Logs */
+:where(:root[data-layout="mobile"]) .responsive-log-table thead {
+  display: none;
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table,
+:where(:root[data-layout="mobile"]) .responsive-log-table tbody,
+:where(:root[data-layout="mobile"]) .responsive-log-table tr,
+:where(:root[data-layout="mobile"]) .responsive-log-table td {
+  display: block;
+  width: 100%;
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table tr {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table tr:last-child {
+  margin-bottom: 0;
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table td {
+  border: none;
+  padding: 0;
+  text-align: left !important;
+}
+
+/* Create a header row inside the card for Checkbox + Level */
+:where(:root[data-layout="mobile"]) .responsive-log-table .log-select-cell {
+  display: inline-block;
+  width: auto;
+  margin-right: 0.75rem;
+  vertical-align: middle;
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table .log-level-cell {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table .log-message-cell {
+  margin: 0.75rem 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(var(--primary-rgb), 0.05);
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table .log-message-content {
+  white-space: normal !important;
+  word-break: break-word;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table .log-action-cell {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+/* Handle details row in card mode */
+:where(:root[data-layout="mobile"]) .responsive-log-table tr.details-row {
+  margin-top: -1.25rem;
+  margin-bottom: 2rem;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+:where(:root[data-layout="mobile"]) .responsive-log-table tr.details-row td {
+  padding: 0;
+}
+
+
+.mobile-scroll-hint {
+  display: none;
+}
+
+/* Generic utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+.gap-4 {
+  gap: 1.5rem;
+}
+
+/* Nav items pair an icon with a label; keep them on one baseline-aligned row. */
+.settings-nav-item-new {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.settings-nav-item-new svg {
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+.settings-nav-item-new.active svg,
+.settings-nav-item-new:hover svg {
+  opacity: 1;
+}
+
+/* Inline icons sitting next to text in badges, headings and buttons. */
+.mini-action-btn svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  vertical-align: -0.125em;
+}
+
+/* Icons replacing emoji in buttons and badges: emoji carried their own size,
+   SVGs inherit from the button, so give the small action controls a size. */
+.pb-action-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.badge svg,
+.filter-btn svg,
+.mode-icon svg,
+.tab-icon svg,
+.search-icon svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+/* Empty-state and section-header glyphs were sized by font-size before. */
+.empty-state-icon svg,
+.no-results-icon svg,
+.empty-icon svg,
+.drawer-empty-icon svg,
+.stock-timeline-icon svg,
+.notification-settings-icon svg,
+.advanced-settings-icon svg {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.5;
+}
+
+.notification-bell-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Retailer editor sticky header.
+   The editor is a long form; without this the save action and the name of the
+   retailer being edited scroll away, and it is easy to lose track of which
+   retailer a change belongs to. Deliberately carries only three things --
+   identity, the primary action, and discard -- because a full toolbar pinned to
+   the top of a form is worse than no toolbar at all. */
+.retailer-editor-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin: -0.5rem -0.5rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 640px) {
+  :where(:root:not([data-layout="desktop"])) .retailer-editor-header {
+    position: static;
+  }
+}
+
+/* Forced-mobile mirror of the 640px block above. Placed here, not at the
+   end of the file, so the cascade order relative to what follows is
+   identical to the media block it mirrors. */
+:where(:root[data-layout="mobile"]) .retailer-editor-header {
+  position: static;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

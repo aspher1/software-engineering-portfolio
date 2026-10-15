@@ -1,0 +1,39 @@
+# predict-bot configuration
+# PAPER-ONLY by default. Live trading requires live_trading: true AND
+# credentials in the environment. The run loop refuses any other combination.
+
+mode:
+  live_trading: false
+  venue_primary: polymarket        # scanner reads public data, no keys needed
+  venue_reference: kalshi          # independent price for mispricing estimate
+
+venues:
+  polymarket:
+    gamma_api: "https://gamma-api.polymarket.com"
+    clob_api: "https://clob.polymarket.com"
+  kalshi:
+    api: "https://api.elections.kalshi.com/trade-api/v2"
+    # Kalshi market listing is public; trading needs KALSHI_KEY_ID + KALSHI_PRIVATE_KEY
+
+scanner:
+  min_volume_usd: 10000
+  min_liquidity_usd: 5000
+  max_markets_per_scan: 300
+  exclude_categories: ["sports"]   # v1 focuses on econ/politics/tech events
+
+strategy:
+  mispricing_threshold: 0.08      # |P_poly - P_kalshi| >= 8% to flag
+  kelly_fraction: 0.25             # quarter-Kelly
+  max_risk_per_trade: 0.06        # never risk more than 6% of bankroll
+  max_open_positions: 10
+  daily_trade_cap: 20
+  bankroll: 1000.0                # paper bankroll, USD
+
+improvement:
+  min_resolved_trades: 10         # before first parameter tuning
+  retune_every_resolved: 10
+  # The tuner may only move risk parameters toward safety (threshold up,
+  # kelly down, caps down). It can never loosen them.
+
+loop:
+  scan_interval_seconds: 600

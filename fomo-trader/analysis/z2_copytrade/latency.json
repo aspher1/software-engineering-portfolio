@@ -1,0 +1,8 @@
+{
+  "data": "synthetic",
+  "leader_trades": 10000,
+  "opportunities": 5000,
+  "p50_ms_per_opportunity": 0.00477356,
+  "p99_ms_per_opportunity": 0.12794812,
+  "note": "Offline generation only; a live version must prove <50 ms decision budget."
+}

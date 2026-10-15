@@ -1,0 +1,92 @@
+{
+  "data_pull": {
+    "detail": "single probe 2026-09-27T20:35Z returned HTTP 404 on the documented path; Solscan docs now center on the keyed Pro API. No further requests made (no hammering). Harness README already documented this endpoint as best-effort/may-be-unavailable.",
+    "leader_trades_pulled": 0,
+    "result": "UNAVAILABLE",
+    "source": "SolscanSource (legacy no-key endpoint https://public-api.solscan.io/account/transactions)"
+  },
+  "resolved_at_utc": "2026-09-27T20:35:18Z",
+  "resolved_by": "parent agent read of the public research repo; full addresses matched against pre-registered truncated prefixes (24678QK, E4EzX, 57stAM). Recorded here; E1_PREREGISTRATION.md frozen protocol untouched.",
+  "seed": 20260927,
+  "source_doc_full_text_review": {
+    "candidate_future_source": {
+      "columns": "mint, block, ts, action, signer, quote, tokens, vquote, vtokens, price, prio, feerate",
+      "coverage_days": [
+        "2026-08-13",
+        "2026-08-20",
+        "2026-08-23",
+        "2026-08-24"
+      ],
+      "gaps_vs_harness": [
+        "No tx signature column -> TapeSource._parse_trade would skip every row; needs the 'separate documented normalization step' the pre-registration scopes out (e.g., deterministic join keys, explicitly labeled as synthetic).",
+        "No token-creator column -> distinct_creators still unvett-able from this source.",
+        "GeckoTerminalPricePath still needs a mint->pool map; pump.fun curve math (K = 30 * 1_073_000_000, vquote AFTER event, fee 1.25%, COMPLETE_VQ cap 115) could price fills more honestly than minute bars - also a scoped-out build."
+      ],
+      "recommendation": "Follow-up session could: HEAD/range-probe the tape endpoint, stream-filter the 4 coverage days for the 3 signers in ONE pass, and build the documented normalization adapter. Vetting would still need a creator source. Requires parent authorization - out of this task's SolscanSource lane.",
+      "size_note": "~585 MB compressed per hour; doc claims ~21 s/hour to stream+filter",
+      "url_pattern": "https://replay.pumpapi.io/YYYY/MM/DD/HH.jsonl.zst"
+    },
+    "findings": [
+      "leader net: doc table row is labeled 'net | +631.6 SOL' but its own parenthetical says '+210/day gross; ~+165/day once his real fees are charged' -> fee-adjusted net ~= 495 SOL over 3 days. Either figure is >0, so the screen's net_sol>0 gate is satisfiable; kept as None in the e1 run out of caution, verdict unchanged (top3 still missing).",
+      "drafter distinct_creators: NOT published anywhere in the doc (drafter section has no creators count; doc states the wallet is 'Not in watch_wallets, creators, or creator_edge'). Cannot be vetted to the 100-creator standard from the source.",
+      "drafter concentration: doc shows an ultra-selective post-migration whale book - 11 positions of 167-261 SOL, +1,056 SOL, 91% win, 76% OF HIS NET. Top-3 trades therefore almost certainly exceed 50% of net -> the drafter would likely FAIL the pre-registered top3_over_half_net screen even with exact numbers. Exact top-3 figure not published; not invented.",
+      "drafter net caveat: '+960.7 SOL (raw, realised) - tips unknown', and 41% of his txs fail. The doc's actionable piece is the curve book alone (743 pos, +331 SOL, 65% win), not the whole wallet.",
+      "target: 4,548 round trips / +85.4 SOL net / 246 creators confirmed as published. No top-3 concentration published.",
+      "leader: 1,006 round trips / 406 creators confirmed as published. No top-3 concentration published."
+    ],
+    "note": "Fetched the full wallets section of the public source doc (1616 lines). Corrections and findings vs the summary used for vetting stats:",
+    "reviewed_at_utc": "2026-09-27T20:38Z"
+  },
+  "source_url": "https://github.com/d3ad-e/solana-sniper-bot/blob/HEAD/CLAUDE.md",
+  "vetting_stats_used": {
+    "24678QKx2Dy8ZCw6Ra8o9DeTqPLL5GR9ZQKxt5FddHmq": {
+      "distinct_creators": 246,
+      "net_sol": 85.4,
+      "provenance": "research doc summary via parent; top3_net_sol not reported",
+      "round_trips": 4548,
+      "top3_net_sol": null,
+      "window_days": 3
+    },
+    "57stAMFvwctAjkBS76RXGoK4QKyS1QoxbGMbzFFe4DyZ": {
+      "distinct_creators": null,
+      "net_sol": 960.7,
+      "provenance": "research doc summary via parent; distinct_creators and top3_net_sol NOT reported in available summary",
+      "round_trips": 754,
+      "top3_net_sol": null,
+      "window_days": 4
+    },
+    "E4EzXdwf7NNdqM2XGswWaWHfxgucVCo24PTCcrimTKBz": {
+      "distinct_creators": 406,
+      "net_sol": null,
+      "provenance": "research doc summary via parent; +631.6 SOL is GROSS, deliberately NOT passed as net_sol; top3_net_sol not reported",
+      "round_trips": 1006,
+      "top3_net_sol": null,
+      "window_days": 3
+    }
+  },
+  "wallets": [
+    {
+      "address": "57stAMFvwctAjkBS76RXGoK4QKyS1QoxbGMbzFFe4DyZ",
+      "copy_priority": 1,
+      "copy_priority_note": "most copyable at retail delay per task brief",
+      "label": "drafter",
+      "prefix": "57stAM",
+      "research_characterization": "momentum buyer; 754 positions / 4 days; +960.7 SOL; 66% win rate; median entry 46 blocks after creation; zero create-block entries; ~30x lower fees than the leader"
+    },
+    {
+      "address": "E4EzXdwf7NNdqM2XGswWaWHfxgucVCo24PTCcrimTKBz",
+      "copy_priority": 2,
+      "copy_priority_note": "edge expected to die at retail delay (finding, not failure)",
+      "label": "leader",
+      "prefix": "E4EzX",
+      "research_characterization": "1,006 round trips / 3 days; +631.6 SOL GROSS (not net); 70% win rate; slot-lag-0 specialist; 12.6x fees; shred-stream read likely required"
+    },
+    {
+      "address": "24678QKx2Dy8ZCw6Ra8o9DeTqPLL5GR9ZQKxt5FddHmq",
+      "copy_priority": 3,
+      "label": "target",
+      "prefix": "24678QK",
+      "research_characterization": "pump.fun sniper; 4,548 round trips / 3 days; +85.4 SOL net; 29% win rate; median entry rank 5; create-block speed likely required"
+    }
+  ]
+}

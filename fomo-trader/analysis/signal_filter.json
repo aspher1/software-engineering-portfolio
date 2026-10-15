@@ -1,0 +1,141 @@
+{
+  "thresholds": {
+    "buy_sell_ratio": 4.0
+  },
+  "ship_recommend": false,
+  "tuning": {
+    "rule": "veto buy_sell_ratio >= 4; offline paper candidate only",
+    "candidate_family": [
+      "veto ratio >= 3",
+      "veto ratio >= 4"
+    ],
+    "selection": "IS per-trade edge, >=20% IS coverage; ratio 4 selected",
+    "split": "time-ordered UTC-normalized entry_ts, first 47 IS, last 23 OOS; launcher EDT/UTC regimes from deaths.log",
+    "date_range": [
+      "2026-09-24 11:56:37 UTC",
+      "2026-09-27 19:18:53 UTC"
+    ],
+    "snapshot": {
+      "log_lines": 16136,
+      "journal_lines": 143,
+      "parsed_signals": 628,
+      "closed_trades": 73,
+      "matched_entries": 70,
+      "timezone_starts": 18
+    },
+    "is": {
+      "baseline": {
+        "n": 47,
+        "native_by_chain": {
+          "bsc": -0.002308516872302717,
+          "solana": -0.5876495343408028
+        },
+        "usd": -69.35771869983218,
+        "usd_n": 47,
+        "win_rate": 0.3404255319148936,
+        "pf": 0.34798833318329436,
+        "max_dd_usd": 76.24019308812191
+      },
+      "filtered": {
+        "n": 41,
+        "native_by_chain": {
+          "bsc": -0.002308516872302717,
+          "solana": -0.5028292006975266
+        },
+        "usd": -59.52597844283401,
+        "usd_n": 41,
+        "win_rate": 0.3902439024390244,
+        "pf": 0.383426665477325,
+        "max_dd_usd": 66.74815412927673
+      },
+      "edge_usd_per_trade": 0.0238430097975717
+    },
+    "oos": {
+      "baseline": {
+        "n": 23,
+        "native_by_chain": {
+          "bsc": -0.05384069632997904,
+          "solana": -0.0710470179208687
+        },
+        "usd": -50.456724988247096,
+        "usd_n": 23,
+        "win_rate": 0.043478260869565216,
+        "pf": 0.0921705880787074,
+        "max_dd_usd": 50.456724988247096
+      },
+      "filtered": {
+        "n": 18,
+        "native_by_chain": {
+          "bsc": -0.03247861404076133,
+          "solana": -0.0710470179208687
+        },
+        "usd": -33.83346312045185,
+        "usd_n": 18,
+        "win_rate": 0.05555555555555555,
+        "pf": 0.13150125810653251,
+        "max_dd_usd": 33.833463120451846
+      },
+      "edge_usd_per_trade": 0.3141338116378143
+    },
+    "is_3x_slippage": {
+      "baseline": {
+        "n": 47,
+        "native_by_chain": {
+          "bsc": -0.002359904526529755,
+          "solana": -0.6060084350964048
+        },
+        "usd": -71.52514224420551,
+        "usd_n": 47,
+        "win_rate": 0.3404255319148936,
+        "pf": 0.3354013271768192,
+        "max_dd_usd": 78.28097602831713
+      },
+      "filtered": {
+        "n": 41,
+        "native_by_chain": {
+          "bsc": -0.002359904526529755,
+          "solana": -0.5190548512206714
+        },
+        "usd": -61.44636718130349,
+        "usd_n": 41,
+        "win_rate": 0.3902439024390244,
+        "pf": 0.37005724485928265,
+        "max_dd_usd": 68.28883032175595
+      },
+      "edge_usd_per_trade": 0.023119654639938814
+    },
+    "oos_3x_slippage": {
+      "baseline": {
+        "n": 23,
+        "native_by_chain": {
+          "bsc": -0.05475171857746332,
+          "solana": -0.07183003136152025
+        },
+        "usd": -51.258062162144924,
+        "usd_n": 23,
+        "win_rate": 0.043478260869565216,
+        "pf": 0.08981568426365845,
+        "max_dd_usd": 51.258062162144924
+      },
+      "filtered": {
+        "n": 18,
+        "native_by_chain": {
+          "bsc": -0.033199074571332324,
+          "solana": -0.07183003136152025
+        },
+        "usd": -34.486553818503246,
+        "usd_n": 18,
+        "win_rate": 0.05555555555555555,
+        "pf": 0.1279079524698629,
+        "max_dd_usd": 34.486553818503246
+      },
+      "edge_usd_per_trade": 0.3126917417706132
+    },
+    "validation_flags": {
+      "oos_edge_below_60pct_is": false,
+      "oos_win_rate_above_90pct": false,
+      "single_bucket_regime": true,
+      "filtered_oos_nonpositive_3x_slippage": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Data, logs, run state (never ship)
+data/
+logs/
+runs/
+*.log
+*.err
+
+# Secrets (never ship)
+.env
+config.json
+*.pem
+id_rsa*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node
+node_modules/

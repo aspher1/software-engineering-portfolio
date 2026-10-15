@@ -1,0 +1,41 @@
+{
+  "delays_s": [
+    5,
+    15,
+    30,
+    60,
+    120
+  ],
+  "global": {},
+  "seed": 20260927,
+  "source_url": "https://github.com/d3ad-e/solana-sniper-bot/blob/HEAD/CLAUDE.md",
+  "status": "not_runnable",
+  "wallets": {
+    "24678QKx2Dy8ZCw6Ra8o9DeTqPLL5GR9ZQKxt5FddHmq": {
+      "address": "24678QKx2Dy8ZCw6Ra8o9DeTqPLL5GR9ZQKxt5FddHmq",
+      "screen_pass": false,
+      "screen_reasons": [
+        "missing_or_invalid_top3_net"
+      ],
+      "status": "not_vetted"
+    },
+    "57stAMFvwctAjkBS76RXGoK4QKyS1QoxbGMbzFFe4DyZ": {
+      "address": "57stAMFvwctAjkBS76RXGoK4QKyS1QoxbGMbzFFe4DyZ",
+      "screen_pass": false,
+      "screen_reasons": [
+        "invalid_distinct_creators",
+        "missing_or_invalid_top3_net"
+      ],
+      "status": "not_vetted"
+    },
+    "E4EzXdwf7NNdqM2XGswWaWHfxgucVCo24PTCcrimTKBz": {
+      "address": "E4EzXdwf7NNdqM2XGswWaWHfxgucVCo24PTCcrimTKBz",
+      "screen_pass": false,
+      "screen_reasons": [
+        "nonpositive_or_invalid_net",
+        "missing_or_invalid_top3_net"
+      ],
+      "status": "not_vetted"
+    }
+  }
+}

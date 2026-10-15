@@ -1,0 +1,112 @@
+{
+  "track": "W3",
+  "ship_recommend": false,
+  "rule": "",
+  "timeouts_swept": [
+    180,
+    300,
+    600,
+    900,
+    1800,
+    3600,
+    7200,
+    14400,
+    28800
+  ],
+  "best_timeout": null,
+  "is_metrics": {},
+  "oos_metrics": {},
+  "gates": {
+    "180": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "300": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "600": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "900": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "1800": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "3600": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "7200": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "14400": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    },
+    "28800": {
+      "chronological_split": true,
+      "oos_edge_retention_60pct": false,
+      "oos_not_worse": true,
+      "wr_le_90pct": true,
+      "oos_decay_le_70pct": false,
+      "both_chains_benefit": false,
+      "stress_same_verdict": false,
+      "broad_plateau": false
+    }
+  },
+  "notes": "No candidate passed: conservative min(0, actual net P&L) bound has no positive IS/OOS edge; 6 clock-ambiguous pairs were left unchanged. Historical replay only, unknown timeout fills; do not deploy."
+}

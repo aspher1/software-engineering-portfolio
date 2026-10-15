@@ -1,0 +1,359 @@
+import { useState, useEffect } from 'react';
+import { AdminSystemService } from '../../services/AdminSystemService';
+import { useToast } from '../../../../context/ToastContext';
+import LoadingSpinner from '../../../../components/LoadingSpinner';
+import CollapsibleCard from '../../../../components/CollapsibleCard';
+import ToggleSwitch from '../../../../components/ToggleSwitch';
+import {
+  UnifiedSelectorManager,
+  SettingsCacheNotice,
+  RuleGroup,
+  PriorityNote,
+  FieldHelp
+} from '../../components';
+import Icon from '../../../../components/Icon';
+import { queryClient } from '../../../../api/queryClient';
+import { adminSystemSettingsQuery, queryKeys } from '../../../../api/queries';
+import { useExpandedSections } from '../../../../hooks';
+
+interface SavedSelectors {
+  priceSelectors: string[];
+  dealPriceSelectors: string[];
+  memberPriceSelectors: string[];
+  originalPriceSelectors: string[];
+  preOrderPriceSelectors: string[];
+  nameSelectors: string[];
+  retailerNameSelectors: string[];
+  imageSelectors: string[];
+  stockSelectors: string[];
+  exclusionSelectors: string[];
+  preferJsonLdImage: boolean;
+  inStockPhrases: string[];
+  outOfStockPhrases: string[];
+  preOrderPhrases: string[];
+}
+
+const parseList = (val?: string | null): string[] => {
+  try { return JSON.parse(val || '[]'); } catch { return []; }
+};
+
+export default function GlobalSelectorsSection() {
+  const { showToast } = useToast();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const [savedData, setSavedData] = useState<SavedSelectors | null>(null);
+
+  // Global Selector states
+  const [globalPriceSelectors, setGlobalPriceSelectors] = useState<string[]>([]);
+  const [globalDealPriceSelectors, setGlobalDealPriceSelectors] = useState<string[]>([]);
+  const [globalMemberPriceSelectors, setGlobalMemberPriceSelectors] = useState<string[]>([]);
+  const [globalOriginalPriceSelectors, setGlobalOriginalPriceSelectors] = useState<string[]>([]);
+  const [globalPreOrderPriceSelectors, setGlobalPreOrderPriceSelectors] = useState<string[]>([]);
+  const [globalNameSelectors, setGlobalNameSelectors] = useState<string[]>([]);
+  const [globalRetailerNameSelectors, setGlobalRetailerNameSelectors] = useState<string[]>([]);
+  const [globalImageSelectors, setGlobalImageSelectors] = useState<string[]>([]);
+  const [globalStockSelectors, setGlobalStockSelectors] = useState<string[]>([]);
+  const [globalExclusionSelectors, setGlobalExclusionSelectors] = useState<string[]>([]);
+
+  // Extraction behaviour: kept with the image rules it changes, not in Core
+  // System Settings (issue #177). Same `prefer_jsonld_image` system setting.
+  const [preferJsonLdImage, setPreferJsonLdImage] = useState(false);
+
+  // Global Phrase states
+  const [globalInStockPhrases, setGlobalInStockPhrases] = useState<string[]>([]);
+  const [globalOutOfStockPhrases, setGlobalOutOfStockPhrases] = useState<string[]>([]);
+  const [globalPreOrderPhrases, setGlobalPreOrderPhrases] = useState<string[]>([]);
+
+  const applySelectors = (data: SavedSelectors) => {
+    setGlobalPriceSelectors(data.priceSelectors);
+    setGlobalDealPriceSelectors(data.dealPriceSelectors);
+    setGlobalMemberPriceSelectors(data.memberPriceSelectors);
+    setGlobalOriginalPriceSelectors(data.originalPriceSelectors);
+    setGlobalPreOrderPriceSelectors(data.preOrderPriceSelectors);
+    setGlobalNameSelectors(data.nameSelectors);
+    setGlobalRetailerNameSelectors(data.retailerNameSelectors);
+    setGlobalImageSelectors(data.imageSelectors);
+    setGlobalStockSelectors(data.stockSelectors);
+    setGlobalExclusionSelectors(data.exclusionSelectors);
+    setPreferJsonLdImage(data.preferJsonLdImage);
+    setGlobalInStockPhrases(data.inStockPhrases);
+    setGlobalOutOfStockPhrases(data.outOfStockPhrases);
+    setGlobalPreOrderPhrases(data.preOrderPhrases);
+  };
+
+  const { expandedSections, toggleSection } = useExpandedSections({
+    sys_sel_price: false,
+    sys_sel_deal: false,
+    sys_sel_member: false,
+    sys_sel_preorder: false,
+    sys_sel_name: false,
+    sys_sel_retailer: false,
+    sys_sel_image: false,
+    sys_sel_stock: false,
+    sys_sel_exclusion: false,
+    sys_phrases: false,
+    sys_phr_instock: false,
+    sys_phr_outofstock: false,
+    sys_phr_preorder: false
+  });
+
+  useEffect(() => {
+    fetchSelectorData();
+  }, []);
+
+  const fetchSelectorData = async () => {
+    setIsLoading(true);
+    try {
+      const res = await queryClient.fetchQuery(adminSystemSettingsQuery());
+      const settings = res;
+
+      const data: SavedSelectors = {
+        priceSelectors: parseList(settings.generic_price_selectors),
+        dealPriceSelectors: parseList(settings.generic_deal_price_selectors),
+        memberPriceSelectors: parseList(settings.generic_member_price_selectors),
+        originalPriceSelectors: parseList(settings.generic_original_price_selectors),
+        preOrderPriceSelectors: parseList(settings.generic_pre_order_price_selectors),
+        nameSelectors: parseList(settings.generic_name_selectors),
+        retailerNameSelectors: parseList(settings.generic_retailer_name_selectors),
+        imageSelectors: parseList(settings.generic_image_selectors),
+        stockSelectors: parseList(settings.generic_stock_selectors),
+        exclusionSelectors: parseList(settings.generic_exclusion_selectors),
+        preferJsonLdImage: settings.prefer_jsonld_image === true || settings.prefer_jsonld_image === 'true',
+        inStockPhrases: parseList(settings.generic_in_stock_phrases),
+        outOfStockPhrases: parseList(settings.generic_out_of_stock_phrases),
+        preOrderPhrases: parseList(settings.generic_pre_order_phrases),
+      };
+
+      applySelectors(data);
+      setSavedData(data);
+    } catch {
+      showToast('Failed to load global selectors', 'error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const currentData: SavedSelectors = {
+    priceSelectors: globalPriceSelectors,
+    dealPriceSelectors: globalDealPriceSelectors,
+    memberPriceSelectors: globalMemberPriceSelectors,
+    originalPriceSelectors: globalOriginalPriceSelectors,
+    preOrderPriceSelectors: globalPreOrderPriceSelectors,
+    nameSelectors: globalNameSelectors,
+    retailerNameSelectors: globalRetailerNameSelectors,
+    imageSelectors: globalImageSelectors,
+    stockSelectors: globalStockSelectors,
+    exclusionSelectors: globalExclusionSelectors,
+    preferJsonLdImage,
+    inStockPhrases: globalInStockPhrases,
+    outOfStockPhrases: globalOutOfStockPhrases,
+    preOrderPhrases: globalPreOrderPhrases,
+  };
+
+  const isDirty = Boolean(
+    savedData && JSON.stringify(currentData) !== JSON.stringify(savedData)
+  );
+
+  const handleSaveSelectors = async () => {
+    setIsSaving(true);
+    try {
+      const payload = {
+        generic_price_selectors: JSON.stringify(globalPriceSelectors),
+        generic_deal_price_selectors: JSON.stringify(globalDealPriceSelectors),
+        generic_member_price_selectors: JSON.stringify(globalMemberPriceSelectors),
+        generic_original_price_selectors: JSON.stringify(globalOriginalPriceSelectors),
+        generic_pre_order_price_selectors: JSON.stringify(globalPreOrderPriceSelectors),
+        generic_name_selectors: JSON.stringify(globalNameSelectors),
+        generic_retailer_name_selectors: JSON.stringify(globalRetailerNameSelectors),
+        generic_image_selectors: JSON.stringify(globalImageSelectors),
+        generic_stock_selectors: JSON.stringify(globalStockSelectors),
+        generic_exclusion_selectors: JSON.stringify(globalExclusionSelectors),
+        generic_in_stock_phrases: JSON.stringify(globalInStockPhrases),
+        generic_out_of_stock_phrases: JSON.stringify(globalOutOfStockPhrases),
+        generic_pre_order_phrases: JSON.stringify(globalPreOrderPhrases),
+        prefer_jsonld_image: preferJsonLdImage,
+      };
+
+      const updated = await AdminSystemService.updateSystemSettings(payload);
+      queryClient.setQueryData(queryKeys.adminSystemSettings, updated);
+      setSavedData(currentData);
+      showToast('Extraction rules saved', 'success');
+    } catch {
+      showToast('Failed to save extraction rules', 'error');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  if (isLoading) return <LoadingSpinner centered />;
+
+  return (
+    <div className="settings-card">
+      <h2 className="settings-card-title">Extraction Rules</h2>
+      <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '-0.75rem', marginBottom: '1rem', maxWidth: '70ch' }}>
+        Fallbacks, applied per field: each list below is used only for retailers
+        that have no rules of their own for that same field.
+      </p>
+
+      <PriorityNote
+        label="Where a rule comes from"
+        steps={['Retailer rules', 'These default rules', 'Built-in fallbacks']}
+      />
+
+      {/*
+        Two different orderings were being read as one (issue #159). The list
+        above is about which *rule* is consulted; this is about which *kind of
+        price* wins once several have been found. A user with a retailer rule
+        for the standard price saw a deal price win anyway and reasonably
+        concluded their retailer rules were being ignored.
+      */}
+      <PriorityNote
+        label="Which price wins"
+        steps={['Deal / sale price', 'Pre-order price', 'Standard price']}
+      />
+
+      <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '-0.5rem', marginBottom: '1rem', maxWidth: '70ch' }}>
+        These are separate. A deal or sale price wins over a standard price
+        whichever rule found it, because it is what you would pay today. So a
+        retailer rule that matches a sale price will override a standard price
+        found by another retailer rule. If a retailer is showing a price you do
+        not expect, check its Deal/Sale rule first &mdash; and if it has none,
+        the Sale / deal list below is supplying one. Then use Troubleshoot Price
+        on the product: the trace names which rule won, and whether it came from
+        the retailer or from these defaults.
+      </p>
+
+      <SettingsCacheNotice />
+
+      <RuleGroup
+        title="Product information"
+        description="What is being tracked, and which shop it came from."
+      >
+        <CollapsibleCard title="Product title" leadingIcon={<Icon name="fileText" />} id="sys_sel_name" badge={String(globalNameSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_name} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Product title selectors" items={globalNameSelectors} onChange={setGlobalNameSelectors} placeholder="h1, .product-name" />
+          <FieldHelp>Identifies the product being tracked.</FieldHelp>
+        </CollapsibleCard>
+
+        <CollapsibleCard title="Retailer identity" leadingIcon={<Icon name="building" />} id="sys_sel_retailer" badge={String(globalRetailerNameSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_retailer} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Retailer identity selectors" items={globalRetailerNameSelectors} onChange={setGlobalRetailerNameSelectors} placeholder="meta[property='og:site_name']" />
+          <FieldHelp>
+            Identifies the shop, not the product manufacturer. Brand selectors do not
+            belong here: they make a store take the first scraped product's brand as
+            its name.
+          </FieldHelp>
+        </CollapsibleCard>
+
+        <CollapsibleCard title="Product image" leadingIcon={<Icon name="image" />} id="sys_sel_image" badge={String(globalImageSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_image} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Product image selectors" items={globalImageSelectors} onChange={setGlobalImageSelectors} placeholder="img.product" />
+          <FieldHelp>Identifies the main product image. Relative and protocol-relative URLs are resolved against the product page.</FieldHelp>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', background: 'var(--background)', padding: '0.75rem', borderRadius: '0.5rem', marginTop: '0.75rem' }}>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: '0.875rem' }}>Prefer JSON-LD for images</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                If found, prioritize high-quality JSON-LD images over the selectors
+                above. A retailer can override this in its own extraction parameters.
+              </div>
+            </div>
+            <ToggleSwitch active={preferJsonLdImage} onToggle={() => setPreferJsonLdImage(v => !v)} />
+          </div>
+        </CollapsibleCard>
+      </RuleGroup>
+
+      <RuleGroup
+        title="Pricing"
+        description="Only the current price becomes the product's tracked price. The others are recorded alongside it."
+      >
+        <CollapsibleCard title="Current price" leadingIcon={<Icon name="search" />} id="sys_sel_price" badge={String(globalPriceSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_price} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Current price selectors" items={globalPriceSelectors} onChange={setGlobalPriceSelectors} placeholder=".price, #price" />
+          <FieldHelp>The price saved as the product's tracked price.</FieldHelp>
+        </CollapsibleCard>
+
+        <CollapsibleCard title="Sale / deal price" leadingIcon={<Icon name="tag" />} id="sys_sel_deal" badge={String(globalDealPriceSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_deal} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Sale / deal price selectors" items={globalDealPriceSelectors} onChange={setGlobalDealPriceSelectors} placeholder=".price-item--sale" />
+          <FieldHelp>A public promotional price. Takes priority over the current price when found.</FieldHelp>
+        </CollapsibleCard>
+
+        <CollapsibleCard title="Member price" leadingIcon={<Icon name="users" />} id="sys_sel_member" badge={String(globalMemberPriceSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_member} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Member price selectors" items={globalMemberPriceSelectors} onChange={setGlobalMemberPriceSelectors} placeholder=".member-price" />
+          <FieldHelp>A loyalty or account-holder price. Recorded separately and never used as the all-time low.</FieldHelp>
+        </CollapsibleCard>
+
+        <CollapsibleCard title="Pre-order price" leadingIcon={<Icon name="clock" />} id="sys_sel_preorder" badge={String(globalPreOrderPriceSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_preorder} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Pre-order price selectors" items={globalPreOrderPriceSelectors} onChange={setGlobalPreOrderPriceSelectors} placeholder=".preorder-price" />
+          <FieldHelp>A price for an item not yet released.</FieldHelp>
+        </CollapsibleCard>
+
+        <CollapsibleCard title="Original / RRP price" leadingIcon={<Icon name="tag" />} id="sys_sel_original" badge={String(globalOriginalPriceSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_original} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Original / RRP selectors" items={globalOriginalPriceSelectors} onChange={setGlobalOriginalPriceSelectors} placeholder=".rrp, .was-price" />
+          <FieldHelp>
+            Reference price only; never saved as the tracked price. Generic RRP
+            patterns match strikethrough prices anywhere on the page, including
+            unrelated products in carousels, so prefer per-retailer selectors and
+            keep this list short.
+          </FieldHelp>
+        </CollapsibleCard>
+      </RuleGroup>
+
+      <RuleGroup
+        title="Availability"
+        description="Stock is read from page evidence first, then from the wording found inside it. Prefer buy buttons, stock badges and availability elements over broad selectors."
+      >
+        <CollapsibleCard title="Stock evidence" leadingIcon={<Icon name="package" />} id="sys_sel_stock" badge={String(globalStockSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_stock} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Stock evidence selectors" items={globalStockSelectors} onChange={setGlobalStockSelectors} placeholder=".stock-status, .availability" />
+          <FieldHelp>Where availability text or purchase controls are found.</FieldHelp>
+        </CollapsibleCard>
+
+        <CollapsibleCard title="Status phrases" leadingIcon={<Icon name="fileText" />} id="sys_phrases" badge={String(globalInStockPhrases.length + globalOutOfStockPhrases.length + globalPreOrderPhrases.length) + ' total'} isExpanded={expandedSections.sys_phrases} onToggle={toggleSection}>
+          <PriorityNote
+            label="Detection order"
+            steps={['Member only', 'Pre-order', 'Out of stock', 'In stock']}
+          />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
+            <CollapsibleCard title="In stock" leadingIcon={<Icon name="checkCircle" />} id="sys_phr_instock" badge={String(globalInStockPhrases.length) + ' items'} isExpanded={expandedSections.sys_phr_instock} onToggle={toggleSection}>
+              <UnifiedSelectorManager label="In-stock phrases" items={globalInStockPhrases} onChange={setGlobalInStockPhrases} placeholder="in stock, available" />
+            </CollapsibleCard>
+
+            <CollapsibleCard title="Out of stock" leadingIcon={<Icon name="xCircle" />} id="sys_phr_outofstock" badge={String(globalOutOfStockPhrases.length) + ' items'} isExpanded={expandedSections.sys_phr_outofstock} onToggle={toggleSection}>
+              <UnifiedSelectorManager label="Out-of-stock phrases" items={globalOutOfStockPhrases} onChange={setGlobalOutOfStockPhrases} placeholder="out of stock, sold out" />
+            </CollapsibleCard>
+
+            <CollapsibleCard title="Pre-order" leadingIcon={<Icon name="clock" />} id="sys_phr_preorder" badge={String(globalPreOrderPhrases.length) + ' items'} isExpanded={expandedSections.sys_phr_preorder} onToggle={toggleSection}>
+              <UnifiedSelectorManager label="Pre-order phrases" items={globalPreOrderPhrases} onChange={setGlobalPreOrderPhrases} placeholder="pre-order, preorder" />
+            </CollapsibleCard>
+          </div>
+          <FieldHelp>Specific states take priority over generic "available" text.</FieldHelp>
+        </CollapsibleCard>
+      </RuleGroup>
+
+      <RuleGroup
+        title="False-positive prevention"
+        description="Regions removed from the page before price and stock extraction runs."
+      >
+        <CollapsibleCard title="Exclusion selectors" leadingIcon={<Icon name="ban" />} id="sys_sel_exclusion" badge={String(globalExclusionSelectors.length) + ' items'} isExpanded={expandedSections.sys_sel_exclusion} onToggle={toggleSection}>
+          <UnifiedSelectorManager label="Exclusion selectors" items={globalExclusionSelectors} onChange={setGlobalExclusionSelectors} placeholder=".ad-container, .carousel" />
+          <FieldHelp>Removes adverts, related products and carousels, which are the usual source of a price belonging to a different item.</FieldHelp>
+        </CollapsibleCard>
+      </RuleGroup>
+
+
+      <div className="settings-actions">
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() => savedData && applySelectors(savedData)}
+          disabled={!isDirty || isSaving}
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleSaveSelectors}
+          disabled={!isDirty || isSaving}
+        >
+          {isSaving ? 'Saving...' : 'Save'}
+        </button>
+      </div>
+    </div>
+  );
+}

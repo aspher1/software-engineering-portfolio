@@ -1,0 +1,9 @@
+# E1 lookahead audit — 2026-09-27
+
+The copier decision point for each leg is `leader_ts + delay_s`. Leader BUY and SELL records are observed only after their own timestamp plus the modeled delay. Position pairing uses wallet, mint and chronological leader events; later SELL records do not influence the BUY decision or entry price. A complete pair is required only to score a closed opportunity retrospectively.
+
+`GeckoTerminalPricePath` interprets each OHLCV timestamp as the minute **start** and exposes its close at start + 60 seconds. It selects the first close at or after the decision point with `bisect_left`; a bar more than 60 seconds later is missing and the opportunity is skipped. This means a BUY at 12:00:30 can use the 12:01:00 close, not the still-forming 12:00 minute close. The close is a coarse execution proxy, not a quote available at 12:00:30. A live version would require executable quotes and measured decision latency.
+
+The fixed mint-to-pool mapping must be assembled before replay from information available at the relevant time. If mapping was discovered using future liquidity or survival, that is a separate selection lookahead and invalidates the run. SOL/USD conversion must also be contemporaneous; the runner accepts an explicit rate and the operator must document its timestamp. Wallet screening uses historical stats; only an independently dated pre-IS history can qualify a wallet without selection leakage. A descriptor from the same replay window is insufficient for a clean OOS claim.
+
+Chronological split uses the first two thirds of leader trades as IS and the final third as OOS. A round trip is assigned by BUY signature. OOS kill and stop rules process only already closed copier positions before permitting the next entry. Remaining overlapping positions settle after entry shutdown, and no later close reverses a triggered stop.

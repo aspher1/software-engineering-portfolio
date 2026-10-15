@@ -1,0 +1,25 @@
+{
+  "name": "stealth-scraper",
+  "version": "1.0.36",
+  "description": "Bulletproof Puppeteer scraper with stealth and adblocker",
+  "main": "dist/scraper.js",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "axios": "1.14.0",
+    "express": "^4.19.2",
+    "jsdom": "^29.0.2",
+    "puppeteer": "^22.6.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-adblocker": "^2.13.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.25",
+    "@types/node": "^20.19.39",
+    "typescript": "^7.0.2"
+  }
+}

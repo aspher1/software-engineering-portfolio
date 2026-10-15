@@ -1,0 +1,1257 @@
+{
+ "levels": [
+  15,
+  20,
+  25,
+  30,
+  35
+ ],
+ "is_n": 49,
+ "main": {
+  "15": {
+   "ALL": {
+    "n": 74,
+    "net": -116.12239189325997,
+    "pf": 0.27162131467227474,
+    "wr": 0.25675675675675674,
+    "dd": 116.30253572519925,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -62.19823502270651,
+    "pf": 0.3803654269804887,
+    "wr": 0.3673469387755102,
+    "dd": 68.40616397709074,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "20": {
+   "ALL": {
+    "n": 74,
+    "net": -118.80488883459664,
+    "pf": 0.2671266458027656,
+    "wr": 0.25675675675675674,
+    "dd": 118.80488883459664,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -64.88073196404318,
+    "pf": 0.3704652203676421,
+    "wr": 0.3673469387755102,
+    "dd": 70.90851708648813,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "25": {
+   "ALL": {
+    "n": 74,
+    "net": -121.43768215033818,
+    "pf": 0.26285758926127034,
+    "wr": 0.25675675675675674,
+    "dd": 121.43768215033818,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 5,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 5
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -67.51352527978472,
+    "pf": 0.3612371030925507,
+    "wr": 0.3673469387755102,
+    "dd": 73.54131040222967,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 5,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 5
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "30": {
+   "ALL": {
+    "n": 74,
+    "net": -123.09878174150778,
+    "pf": 0.26023363040502556,
+    "wr": 0.25675675675675674,
+    "dd": 123.09878174150776,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 1
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -69.17462487095432,
+    "pf": 0.3556477108835742,
+    "wr": 0.3673469387755102,
+    "dd": 75.20240999339926,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 1
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "35": {
+   "ALL": {
+    "n": 74,
+    "net": -123.52382345942382,
+    "pf": 0.2595706084609951,
+    "wr": 0.25675675675675674,
+    "dd": 123.52382345942382,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 10
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -69.59966658887036,
+    "pf": 0.35424518116477066,
+    "wr": 0.3673469387755102,
+    "dd": 75.62745171131532,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 9
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  }
+ },
+ "stress3x": {
+  "15": {
+   "ALL": {
+    "n": 74,
+    "net": -119.33146376861235,
+    "pf": 0.26120862392978006,
+    "wr": 0.25675675675675674,
+    "dd": 119.3877518708257,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -64.54209553191276,
+    "pf": 0.3652124051865155,
+    "wr": 0.3673469387755102,
+    "dd": 70.42853598184797,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -54.78936823669959,
+    "pf": 0.08451609802489626,
+    "wr": 0.04,
+    "dd": 54.789368236699595,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "20": {
+   "ALL": {
+    "n": 74,
+    "net": -122.00588089988476,
+    "pf": 0.25695409444986556,
+    "wr": 0.25675675675675674,
+    "dd": 122.00588089988477,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -67.21651266318517,
+    "pf": 0.3558522251834684,
+    "wr": 0.3673469387755102,
+    "dd": 73.04666501090705,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -54.78936823669959,
+    "pf": 0.08451609802489626,
+    "wr": 0.04,
+    "dd": 54.789368236699595,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "25": {
+   "ALL": {
+    "n": 74,
+    "net": -124.63074411527766,
+    "pf": 0.25291104225014066,
+    "wr": 0.25675675675675674,
+    "dd": 124.63074411527771,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 5,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 5
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -69.84137587857808,
+    "pf": 0.347120570306048,
+    "wr": 0.3673469387755102,
+    "dd": 75.67152822629998,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 5,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 5
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -54.78936823669959,
+    "pf": 0.08451609802489626,
+    "wr": 0.04,
+    "dd": 54.789368236699595,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "30": {
+   "ALL": {
+    "n": 74,
+    "net": -126.28684039442567,
+    "pf": 0.25042498929813894,
+    "wr": 0.25675675675675674,
+    "dd": 126.28684039442572,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 1
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -71.49747215772608,
+    "pf": 0.34182863866012286,
+    "wr": 0.3673469387755102,
+    "dd": 77.327624505448,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 1
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -54.78936823669959,
+    "pf": 0.08451609802489626,
+    "wr": 0.04,
+    "dd": 54.789368236699595,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "35": {
+   "ALL": {
+    "n": 74,
+    "net": -126.71060186620342,
+    "pf": 0.249796692056341,
+    "wr": 0.25675675675675674,
+    "dd": 126.71060186620346,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 10
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -71.92123362950383,
+    "pf": 0.3405003656600954,
+    "wr": 0.3673469387755102,
+    "dd": 77.75138597722574,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 9
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -54.78936823669959,
+    "pf": 0.08451609802489626,
+    "wr": 0.04,
+    "dd": 54.789368236699595,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  }
+ },
+ "fill_shock_2pct": {
+  "15": {
+   "ALL": {
+    "n": 74,
+    "net": -117.03444085331444,
+    "pf": 0.2700762530408599,
+    "wr": 0.25675675675675674,
+    "dd": 117.04518002525373,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -63.110283982760976,
+    "pf": 0.3769405217373856,
+    "wr": 0.3673469387755102,
+    "dd": 69.1488082771452,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "20": {
+   "ALL": {
+    "n": 74,
+    "net": -119.66328785582438,
+    "pf": 0.26571960261564503,
+    "wr": 0.25675675675675674,
+    "dd": 119.66328785582436,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -65.73913098527092,
+    "pf": 0.3674051008918479,
+    "wr": 0.3673469387755102,
+    "dd": 71.76691610771586,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "25": {
+   "ALL": {
+    "n": 74,
+    "net": -122.13847525506901,
+    "pf": 0.2617441545895515,
+    "wr": 0.25675675675675674,
+    "dd": 122.138475255069,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 5,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 5
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -68.21431838451554,
+    "pf": 0.35885773829539624,
+    "wr": 0.3673469387755102,
+    "dd": 74.24210350696049,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 5,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 5
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "30": {
+   "ALL": {
+    "n": 74,
+    "net": -123.23829146150777,
+    "pf": 0.26001563629394997,
+    "wr": 0.25675675675675674,
+    "dd": 123.23829146150777,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 1
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -69.31413459095431,
+    "pf": 0.3551861414484178,
+    "wr": 0.3673469387755102,
+    "dd": 75.34191971339926,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 1
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "35": {
+   "ALL": {
+    "n": 74,
+    "net": -123.52382345942382,
+    "pf": 0.2595706084609951,
+    "wr": 0.25675675675675674,
+    "dd": 123.52382345942382,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 10
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -69.59966658887036,
+    "pf": 0.35424518116477066,
+    "wr": 0.3673469387755102,
+    "dd": 75.62745171131532,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 9
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  }
+ },
+ "dump_flip": {
+  "15": {
+   "ALL": {
+    "n": 74,
+    "net": -112.26639493952915,
+    "pf": 0.27835379486338413,
+    "wr": 0.25675675675675674,
+    "dd": 112.44653877146843,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 14,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-stop-fires(sensB)": 8,
+     "dump-unchanged": 29,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -61.541845658814054,
+    "pf": 0.3828690525552894,
+    "wr": 0.3673469387755102,
+    "dd": 67.7497746131983,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 8,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-stop-fires(sensB)": 2,
+     "dump-unchanged": 12,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -50.724549280715095,
+    "pf": 0.09172857025562167,
+    "wr": 0.04,
+    "dd": 50.7245492807151,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 6,
+    "cats": {
+     "dump-stop-fires(sensB)": 6,
+     "dump-unchanged": 17,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "20": {
+   "ALL": {
+    "n": 74,
+    "net": -117.40941112000453,
+    "pf": 0.2694461195340036,
+    "wr": 0.25675675675675674,
+    "dd": 117.40941112000453,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 10,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-stop-fires(sensB)": 4,
+     "dump-unchanged": 33,
+     "stale-unchanged": 6,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 6
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -64.88073196404318,
+    "pf": 0.3704652203676421,
+    "wr": 0.3673469387755102,
+    "dd": 70.90851708648813,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 6,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 11,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 6
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -52.528679155961356,
+    "pf": 0.08885804092438655,
+    "wr": 0.04,
+    "dd": 52.52867915596136,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 4,
+    "cats": {
+     "dump-stop-fires(sensB)": 4,
+     "dump-unchanged": 19,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "25": {
+   "ALL": {
+    "n": 74,
+    "net": -121.02285958447128,
+    "pf": 0.2635211424910923,
+    "wr": 0.25675675675675674,
+    "dd": 121.02285958447125,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 7,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-stop-fires(sensB)": 2,
+     "dump-unchanged": 35,
+     "stale-unchanged": 6,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 5
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -67.51352527978472,
+    "pf": 0.3612371030925507,
+    "wr": 0.3673469387755102,
+    "dd": 73.54131040222967,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 5,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 12,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 5
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.509334304686554,
+    "pf": 0.08737184055902661,
+    "wr": 0.04,
+    "dd": 53.50933430468656,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 2,
+    "cats": {
+     "dump-stop-fires(sensB)": 2,
+     "dump-unchanged": 21,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "30": {
+   "ALL": {
+    "n": 74,
+    "net": -123.09878174150778,
+    "pf": 0.26023363040502556,
+    "wr": 0.25675675675675674,
+    "dd": 123.09878174150776,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 10,
+     "trail-stop-fires": 1
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -69.17462487095432,
+    "pf": 0.3556477108835742,
+    "wr": 0.3673469387755102,
+    "dd": 75.20240999339926,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 1,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 16,
+     "trail-gap-unchanged": 9,
+     "trail-stop-fires": 1
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  },
+  "35": {
+   "ALL": {
+    "n": 74,
+    "net": -123.52382345942382,
+    "pf": 0.2595706084609951,
+    "wr": 0.25675675675675674,
+    "dd": 123.52382345942382,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 19,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 37,
+     "stale-unchanged": 6,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 10
+    }
+   },
+   "IS": {
+    "n": 49,
+    "net": -69.59966658887036,
+    "pf": 0.35424518116477066,
+    "wr": 0.3673469387755102,
+    "dd": 75.62745171131532,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 4,
+    "base_winners": 18,
+    "stops_fired": 0,
+    "cats": {
+     "discretionary-unchanged": 4,
+     "dump-unchanged": 14,
+     "stale-unchanged": 5,
+     "trail-before-stop": 17,
+     "trail-gap-unchanged": 9
+    }
+   },
+   "OOS": {
+    "n": 25,
+    "net": -53.92415687055346,
+    "pf": 0.08675802716890109,
+    "wr": 0.04,
+    "dd": 53.92415687055347,
+    "n_usd_missing": 0,
+    "winners_killed": 0,
+    "winners_reduced": 0,
+    "winners_unknown_dip": 0,
+    "base_winners": 1,
+    "stops_fired": 0,
+    "cats": {
+     "dump-unchanged": 23,
+     "stale-unchanged": 1,
+     "trail-gap-unchanged": 1
+    }
+   }
+  }
+ }
+}

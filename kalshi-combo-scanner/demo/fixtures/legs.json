@@ -1,0 +1,57 @@
+{
+  "_comment": "SYNTHETIC hand-written fixture for demo/run_demo.py. NOT real market data: tickers, prices, fair values and depths are invented to exercise the combo picker offline. expires_in_s is relative to the demo's run time.",
+  "legs": [
+    {
+      "ticker": "SYNTH-BTC15M-UP",
+      "side": "YES",
+      "ask_cents": 72,
+      "fair_cents": 80,
+      "fair_source": "kraken_model",
+      "event_ticker": "SYNTH-BTC15M",
+      "category": "crypto15m",
+      "direction": 1,
+      "expires_in_s": 900,
+      "depth_contracts": 50,
+      "model_version": "synthetic_demo"
+    },
+    {
+      "ticker": "SYNTH-ELECTION-A",
+      "side": "YES",
+      "ask_cents": 75,
+      "fair_cents": 83,
+      "fair_source": "xvenue_poly",
+      "event_ticker": "SYNTH-ELECTION",
+      "category": "other",
+      "direction": 0,
+      "expires_in_s": 2592000,
+      "depth_contracts": 50,
+      "model_version": "synthetic_demo"
+    },
+    {
+      "ticker": "SYNTH-CPI-ABOVE",
+      "side": "NO",
+      "ask_cents": 78,
+      "fair_cents": 85,
+      "fair_source": "xvenue_poly",
+      "event_ticker": "SYNTH-CPI",
+      "category": "other",
+      "direction": 0,
+      "expires_in_s": 1209600,
+      "depth_contracts": 50,
+      "model_version": "synthetic_demo"
+    },
+    {
+      "ticker": "SYNTH-ELECTION-B",
+      "side": "NO",
+      "ask_cents": 60,
+      "fair_cents": 66,
+      "fair_source": "xvenue_poly",
+      "event_ticker": "SYNTH-ELECTION",
+      "category": "other",
+      "direction": 0,
+      "expires_in_s": 2592000,
+      "depth_contracts": 50,
+      "model_version": "synthetic_demo"
+    }
+  ]
+}

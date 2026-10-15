@@ -1,0 +1,100 @@
+import { useState, useEffect, useRef } from 'react';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { ProfileService } from '../services/ProfileService';
+import { UserProfile, GlobalCurrency } from '../../../types/api';
+import { useToast } from '../../../context/ToastContext';
+import { useAuth } from '../../auth';
+import SearchableSelect from '../../../components/SearchableSelect';
+import LoadingSpinner from '../../../components/LoadingSpinner';
+import { queryClient } from '../../../api/queryClient';
+import { currenciesQuery, profileQuery, queryKeys } from '../../../api/queries';
+import { AUTOMATIC_CURRENCY_OPTION, AUTOMATIC_LOCALE_OPTION, LOCALE_OPTIONS } from '../regionalOptions';
+
+export default function RegionalSection() {
+  const { showToast } = useToast();
+  const { updateUser } = useAuth();
+  const [profileCurrency, setProfileCurrency] = useState('');
+  const [profileLocale, setProfileLocale] = useState('');
+  const initializedProfileId = useRef<number | null>(null);
+  const profileResult = useQuery(profileQuery());
+  const currenciesResult = useQuery(currenciesQuery());
+  const profile = profileResult.data ?? null;
+  const globalCurrencies: GlobalCurrency[] = currenciesResult.data ?? [];
+  const updateProfile = useMutation({
+    mutationFn: ProfileService.updateProfile,
+    onSuccess: (profile) => queryClient.setQueryData<UserProfile>(queryKeys.profile, profile),
+  });
+
+  useEffect(() => {
+    if (!profile || initializedProfileId.current === profile.id) return;
+    initializedProfileId.current = profile.id;
+    setProfileCurrency(profile.currency || '');
+    setProfileLocale(profile.locale || '');
+  }, [profile]);
+
+  const isDirty = profile ? (profileCurrency !== (profile.currency || '') || profileLocale !== (profile.locale || '')) : false;
+
+  const handleSaveRegional = async () => {
+    try {
+      const res = await updateProfile.mutateAsync({
+        name: profile?.name || '', 
+        currency: profileCurrency || null,
+        locale: profileLocale || null,
+      });
+      updateUser({ name: res.name, currency: res.currency, locale: res.locale });
+      showToast('Regional settings updated', 'success');
+    } catch {
+      showToast('Failed to update regional settings', 'error');
+    }
+  };
+
+  if (profileResult.isLoading || currenciesResult.isLoading) return <LoadingSpinner centered />;
+  if (profileResult.isError || currenciesResult.isError || !profile) return <div className="alert alert-error">Failed to load regional settings. <button className="btn btn-secondary btn-sm" onClick={() => { void profileResult.refetch(); void currenciesResult.refetch(); }}>Retry</button></div>;
+
+  return (
+    <section className="settings-card">
+      <form onSubmit={(e) => { e.preventDefault(); void handleSaveRegional(); }}>
+        <h2 className="settings-card-title">Regional Settings</h2>
+        <p className="settings-card-description">
+          Configure your display currency and local date/number formats.
+        </p>
+
+        <div className="form-grid">
+          <div className="form-group">
+            <SearchableSelect
+              label="Preferred Currency"
+              options={[AUTOMATIC_CURRENCY_OPTION, ...globalCurrencies.map(gc => ({
+                label: `${gc.iso} (${gc.symbol})`,
+                value: gc.iso,
+                subLabel: gc.currency_name
+              }))]}
+              value={profileCurrency}
+              placeholder="Choose a currency"
+              onChange={(val) => {
+                setProfileCurrency(val);
+                const match = globalCurrencies.find(gc => gc.iso === val);
+                if (match) setProfileLocale(match.locale);
+              }}
+            />
+          </div>
+          <div className="form-group">
+            <SearchableSelect
+              label="Locale Format"
+              options={[AUTOMATIC_LOCALE_OPTION, ...LOCALE_OPTIONS]}
+              value={profileLocale}
+              placeholder="Choose a locale"
+              onChange={setProfileLocale}
+            />
+          </div>
+        </div>
+
+        <div className="settings-actions">
+          <button type="button" className="btn btn-secondary" onClick={() => { setProfileCurrency(profile.currency || ''); setProfileLocale(profile.locale || ''); }} disabled={!isDirty || updateProfile.isPending}>Cancel</button>
+          <button type="submit" className="btn btn-primary" disabled={!isDirty || updateProfile.isPending}>
+            {updateProfile.isPending ? 'Saving...' : 'Save'}
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+}

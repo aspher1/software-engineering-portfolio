@@ -1,0 +1,541 @@
+{
+  "schema": "field_usage_audit/v1",
+  "now": "2026-09-27 20:38:54",
+  "journal": "/home/hatch/workspace/fomo-trader/runs/paper-1h/trades.jsonl",
+  "analysis_dir": "/home/hatch/workspace/fomo-trader/analysis",
+  "sunset_days": 14,
+  "journal_stats": {
+    "lines": 154,
+    "corrupt_lines": 0,
+    "records_without_ts": 0,
+    "missing": false
+  },
+  "scan_stats": {
+    "files_scanned": 26,
+    "scan_errors": 0
+  },
+  "fields": {
+    "buy_sig": {
+      "first_seen": "2026-09-24 07:56:37",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 76,
+      "non_null_records": 76,
+      "analysis_refs": [],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "buy_sol": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 154,
+      "non_null_records": 154,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/w1_exit_feas/exit_feas.py",
+        "analysis/w3_stale_exit/w3_stale_exit.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/x2_moonbag/moonbag.py",
+        "analysis/y2_stoploss/stoploss.py",
+        "analysis/y3_fade/fade.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "chain": {
+      "first_seen": "2026-09-24 16:12:28",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.19,
+      "records_with_field": 59,
+      "non_null_records": 59,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/signal_filter.py",
+        "analysis/train_model.py",
+        "analysis/w2_bundle_detect/calibrate.py",
+        "analysis/w2_bundle_detect/detector.py",
+        "analysis/w4_wash_detect/wash_detect.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/x3_lowgain/x3_lowgain.py",
+        "analysis/y3_fade/fade.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "commit_price_native": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/w1_exit_feas/exit_feas.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "commit_price_usd": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/w1_exit_feas/exit_feas.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "entry": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 154,
+      "non_null_records": 154,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/w3_stale_exit/w3_stale_exit.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/x2_moonbag/moonbag.py",
+        "analysis/y1_regime/regime.py",
+        "analysis/y2_stoploss/stoploss.py",
+        "analysis/y3_fade/fade.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "entry_latency_ms": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/signal_filter.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "exit": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 78,
+      "non_null_records": 78,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/w3_stale_exit/w3_stale_exit.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/x2_moonbag/moonbag.py",
+        "analysis/y2_stoploss/stoploss.py",
+        "analysis/y3_fade/fade.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "holder_top1_pct": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": null,
+      "days_since_used": null,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 0,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/w2_bundle_detect/calibrate.py",
+        "analysis/w2_bundle_detect/detector.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "holder_top5_pct": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": null,
+      "days_since_used": null,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 0,
+      "analysis_refs": [
+        "analysis/w2_bundle_detect/calibrate.py",
+        "analysis/w2_bundle_detect/detector.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "liquidity_usd": {
+      "first_seen": "2026-09-24 07:56:37",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 76,
+      "non_null_records": 76,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/signal_filter.py",
+        "analysis/train_model.py",
+        "analysis/w1_exit_feas/exit_feas.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "lp_burn_pct": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": null,
+      "days_since_used": null,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 0,
+      "analysis_refs": [
+        "analysis/replay.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "lp_locked": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": null,
+      "days_since_used": null,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 0,
+      "analysis_refs": [
+        "analysis/replay.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "m15_buys": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/signal_filter.py",
+        "analysis/w4_wash_detect/wash_detect.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "m15_sells": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/signal_filter.py",
+        "analysis/w4_wash_detect/wash_detect.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "m15_volume_usd": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/signal_filter.py",
+        "analysis/w1_exit_feas/exit_feas.py",
+        "analysis/w4_wash_detect/wash_detect.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "mcap_usd": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/signal_filter.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "mint": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 154,
+      "non_null_records": 154,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/y1_regime/regime.py",
+        "analysis/y3_fade/fade.py",
+        "analysis/z2_copytrade/sources.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "name": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 154,
+      "non_null_records": 154,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/signal_filter.py",
+        "analysis/x3_lowgain/x3_lowgain.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "peak": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 78,
+      "non_null_records": 78,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/w3_stale_exit/w3_stale_exit.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/x2_moonbag/moonbag.py",
+        "analysis/y2_stoploss/stoploss.py",
+        "analysis/y3_fade/fade.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "realized_bnb": {
+      "first_seen": "2026-09-24 16:12:28",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.19,
+      "records_with_field": 32,
+      "non_null_records": 26,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/w3_stale_exit/w3_stale_exit.py",
+        "analysis/x2_moonbag/moonbag.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "realized_sol": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 14:01:35",
+      "days_since_used": 0.28,
+      "days_tracked": 3.53,
+      "records_with_field": 78,
+      "non_null_records": 52,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/w3_stale_exit/w3_stale_exit.py",
+        "analysis/x2_moonbag/moonbag.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "realized_usd": {
+      "first_seen": "2026-09-24 16:12:28",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.19,
+      "records_with_field": 32,
+      "non_null_records": 32,
+      "analysis_refs": [],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "reason": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 78,
+      "non_null_records": 78,
+      "analysis_refs": [
+        "analysis/exit_sweep.py",
+        "analysis/replay.py",
+        "analysis/w2_bundle_detect/calibrate.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/x2_moonbag/moonbag.py",
+        "analysis/x3_lowgain/x3_lowgain.py",
+        "analysis/y2_stoploss/stoploss.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "rungs": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 78,
+      "non_null_records": 78,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/y2_stoploss/stoploss.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "signal_gain_pct": {
+      "first_seen": "2026-09-24 07:56:37",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 76,
+      "non_null_records": 76,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/train_model.py",
+        "analysis/x1_ruggap/ruggap.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "signal_price_usd": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "signal_ratio": {
+      "first_seen": "2026-09-24 07:56:37",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 76,
+      "non_null_records": 76,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/train_model.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "slip_from_signal_pct": {
+      "first_seen": "2026-09-27 16:19:42",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 0.18,
+      "records_with_field": 9,
+      "non_null_records": 9,
+      "analysis_refs": [
+        "analysis/signal_filter.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "sol_usd": {
+      "first_seen": "2026-09-24 10:56:09",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.4,
+      "records_with_field": 108,
+      "non_null_records": 108,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/w1_exit_feas/exit_feas.py",
+        "analysis/w3_stale_exit/w3_stale_exit.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/x2_moonbag/moonbag.py",
+        "analysis/y2_stoploss/stoploss.py",
+        "analysis/y3_fade/fade.py",
+        "analysis/z3_lp_ceiling/z3_lp_ceiling.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "source": {
+      "first_seen": "2026-09-24 07:56:37",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 76,
+      "non_null_records": 76,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/signal_filter.py",
+        "analysis/train_model.py",
+        "analysis/z3_lp_ceiling/z3_lp_ceiling.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "ts": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 154,
+      "non_null_records": 154,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/train_model.py",
+        "analysis/y1_regime/regime.py",
+        "analysis/y3_fade/fade.py",
+        "analysis/z2_copytrade/sources.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "type": {
+      "first_seen": "2026-09-24 07:56:11",
+      "last_non_null": "2026-09-27 20:16:33",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 154,
+      "non_null_records": 154,
+      "analysis_refs": [
+        "analysis/replay.py",
+        "analysis/x1_ruggap/ruggap.py",
+        "analysis/y1_regime/regime.py",
+        "analysis/y3_fade/fade.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    },
+    "window": {
+      "first_seen": "2026-09-24 07:56:37",
+      "last_non_null": "2026-09-27 20:16:06",
+      "days_since_used": 0.02,
+      "days_tracked": 3.53,
+      "records_with_field": 76,
+      "non_null_records": 76,
+      "analysis_refs": [
+        "analysis/replay.py"
+      ],
+      "sunset_review": false,
+      "reason": ""
+    }
+  },
+  "sunset_candidates": [],
+  "note": "Flags only; nothing was deleted or changed. A human decides whether a flagged field stops being collected."
+}

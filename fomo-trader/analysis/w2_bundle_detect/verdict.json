@@ -1,0 +1,226 @@
+{
+  "track": "W2 coordinated/bundled ownership detection",
+  "scope": "Solana only",
+  "validation": "INCONCLUSIVE",
+  "ship_recommend": false,
+  "ship_rule": null,
+  "reason": "No completed Solana trade has non-null holder concentration evidence; no W2 threshold can be fit or tested.",
+  "minimum_enriched_completed_solana_trades": 60,
+  "minimum_split": {
+    "is": 40,
+    "oos": 20
+  },
+  "additional_requirements": [
+    "At least 10 vetoed and 10 kept trades in each split for a candidate rule",
+    "At least two observed market regimes in each split",
+    "OOS edge retention >= 60%, OOS decay <= 70%, win rate <= 90%, acceptable P&L under 3x slippage"
+  ],
+  "journal": "runs/paper-1h/trades.jsonl",
+  "journal_counts": {
+    "close": 73,
+    "entry": 71,
+    "unmatched_entries": 1,
+    "unmatched_closes": 3
+  },
+  "completed_solana_with_entry": 49,
+  "completed_solana_with_holder_evidence": 0,
+  "completed_bsc": 21,
+  "bsc_holder_data": "not used; BSC lacks this Solana RPC enrichment and thresholds do not transfer",
+  "split_method": "chronological closed-trade journal append order, first 2/3 IS and final 1/3 OOS",
+  "baseline": {
+    "is": {
+      "n": 32,
+      "native_by_chain": {
+        "solana": -0.622059473098636
+      },
+      "usd": -71.55830837019128,
+      "usd_n": 32,
+      "win_rate": 0.25,
+      "pf": 0.22368836434000433,
+      "max_dd_usd": 73.77318439722332
+    },
+    "oos": {
+      "n": 17,
+      "native_by_chain": {
+        "solana": -0.03663707916303547
+      },
+      "usd": -4.545506461130453,
+      "usd_n": 17,
+      "win_rate": 0.47058823529411764,
+      "pf": 0.7829661218085909,
+      "max_dd_usd": 11.730694109141975
+    },
+    "stress_3x_slippage": {
+      "is": {
+        "n": 32,
+        "native_by_chain": {
+          "solana": -0.635184827922613
+        },
+        "usd": -73.07242390779776,
+        "usd_n": 32,
+        "win_rate": 0.25,
+        "pf": 0.2157281001498935,
+        "max_dd_usd": 75.2189719551038
+      },
+      "oos": {
+        "n": 17,
+        "native_by_chain": {
+          "solana": -0.04265363853531208
+        },
+        "usd": -5.251594944227007,
+        "usd_n": 17,
+        "win_rate": 0.47058823529411764,
+        "pf": 0.7528442763063699,
+        "max_dd_usd": 12.240537018255523
+      }
+    }
+  },
+  "thresholds_tested": [
+    {
+      "id": "top1_gt_20",
+      "rule": "holder_top1_pct > 20",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "top1_gt_30",
+      "rule": "holder_top1_pct > 30",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "top1_gt_40",
+      "rule": "holder_top1_pct > 40",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "top5_gt_50",
+      "rule": "holder_top5_pct > 50",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "top5_gt_60",
+      "rule": "holder_top5_pct > 60",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "top5_gt_70",
+      "rule": "holder_top5_pct > 70",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "spread_gt_20",
+      "rule": "holder_top5_pct - holder_top1_pct > 20",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "spread_gt_30",
+      "rule": "holder_top5_pct - holder_top1_pct > 30",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "spread_gt_40",
+      "rule": "holder_top5_pct - holder_top1_pct > 40",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "top5_gt_60_top1_le_20",
+      "rule": "holder_top5_pct > 60 AND holder_top1_pct <= 20",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "first10_gt_35",
+      "rule": "first10_buyers_pct > 35",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    },
+    {
+      "id": "launch_block_gt_20",
+      "rule": "launch_block_buyers_pct > 20",
+      "n_with_required_field": 0,
+      "is": null,
+      "oos": null,
+      "stress_3x_slippage": {
+        "is": null,
+        "oos": null
+      },
+      "status": "untestable: no field data"
+    }
+  ],
+  "cost_model": "analysis.replay.metrics: journal realized P&L minus estimated fees, priority fees and 0.15% slippage per leg; stress triples only that slippage leg",
+  "notes": "Threshold outcomes are null because no entry has the required evidence. Baseline metrics are context, not W2 validation. Score scales and candidate rules are unfitted."
+}

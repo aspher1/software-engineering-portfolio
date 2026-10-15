@@ -1,0 +1,83 @@
+{
+  "_comment": "Copy to config.json and edit. dry_run=true until you are ready for real money.",
+  "check_interval_sec": 20,
+  "dry_run": true,
+  "exit": {
+    "hard_stop_pct": 40,
+    "shadow_dump_detector": true,
+    "shadow_dump_drop_pct": 8,
+    "shadow_dump_window_sec": 30,
+    "shadow_venue_dump_m5_pct": -20,
+    "max_priority_fee_lamports": 2000000,
+    "sell_poll_sec": 5,
+    "slippage_bps": 500,
+    "take_profits": [
+      [
+        100,
+        50
+      ],
+      [
+        200,
+        25
+      ]
+    ],
+    "trailing_stop_pct": 30
+  },
+  "hunter": {
+    "entry": {
+      "signal_max_age_sec": 180,
+      "_comment_veto_positive_slip": "Veto entries filling above the signal print (slip>0, strict); fail-open when slip unknown. Default true; set false to disable.",
+      "veto_positive_slip": true
+    },
+    "max_liquidity_usd": 0,
+    "min_buy_sell_ratio": 10.0,
+    "min_liquidity_usd": 15000,
+    "min_m15_buys": 50,
+    "min_m15_gain_pct": 100,
+    "min_m15_volume_usd": 5000,
+    "pages_new": 10,
+    "pages_trending": 5,
+    "poll_sec": 30
+  },
+  "keypair_path": "~/.config/solana/id.json",
+  "risk": {
+    "buy_sol_per_trade": 0.1,
+    "cooldown_min_per_mint": 120,
+    "kill_switch_max_daily_loss_sol": 0.5,
+    "kill_switch_protect_trail_pct": 10,
+    "max_open_positions": 3,
+    "max_trades_per_day": 10
+  },
+  "money": {
+    "_comment": "Paper bankroll money management. Ticket size = risk_per_trade_pct * bankroll / hard_stop_pct, capped at the fixed risk.buy_*_per_trade sizes (size can only shrink, never grow). Daily USD kill-switch cap = min(fixed cap, daily_loss_pct * day-start bankroll). Entries blocked at max_drawdown_pct drawdown, resuming below drawdown_resume_pct.",
+    "starting_bankroll_usd": 1000.0,
+    "risk_per_trade_pct": 1.0,
+    "daily_loss_pct": 6.0,
+    "max_drawdown_pct": 15.0,
+    "drawdown_resume_pct": 10.0
+  },
+  "allocator": {
+    "_comment": "Deterministic entry allocator (allocator.py), scored at entry commit after all guardrails pass. Pure local arithmetic: no network, no AI, no randomness. It is an additional filter only; rug guard, caps, kill switches and cooldowns are unchanged. Remove this section to turn it off entirely.",
+    "_comment_mode": "shadow = trade exactly as before (1.0x, never skips) and journal allocator_score/take/multiplier/would_be_native; live = apply take/skip and size = min(configured ticket * multiplier, money.py risk ceiling), multiplier in [0.5, 2.0]; off = not called. Flip to live only on a 'pass' verdict in analysis/allocator_proposal.json, then restart the bot.",
+    "mode": "shadow",
+    "_comment_take_threshold": "take = score >= take_threshold (score in 0..1; 0.5 = neutral signal = 1.0x).",
+    "take_threshold": 0.35,
+    "_comment_weights": "Logistic weights on features normalized to [-1, 1] around a typical signal; missing features contribute 0. Defaults mirror allocator.DEFAULT_WEIGHTS (mild priors). Update only by copying weights from a passing analysis/allocator_proposal.json.",
+    "weights": {
+      "intercept": 0.0,
+      "signal_gain_pct": -0.1,
+      "liquidity_usd": 0.15,
+      "buy_count_15m": 0.05,
+      "sell_count_15m": 0.0,
+      "buy_sell_ratio": 0.1,
+      "volume_15m_usd": 0.05,
+      "mcap_usd": 0.0,
+      "holder_top1_pct": -0.15,
+      "holder_top5_pct": -0.1,
+      "signal_to_fill_slippage_pct": -0.15,
+      "entry_latency_sec": -0.05,
+      "chain_bsc": 0.0
+    }
+  },
+  "rpc_url": "https://api.mainnet-beta.solana.com"
+}

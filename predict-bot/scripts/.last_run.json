@@ -1,0 +1,76 @@
+{
+ "kalshi_requests": {
+  "attempts": 11,
+  "retries": 0
+ },
+ "ok": true,
+ "as_of_utc": "2026-10-06T21:27:08.504416+00:00",
+ "notes": [
+  "sweep_cache=hit age_s=562 markets=61000",
+  "kalshi_same_day_markets=61009",
+  "live_15m_crypto_windows=9",
+  "polymarket_same_day_liquid=61",
+  "exit_check_open_evaluated=0_exits"
+ ],
+ "signals_total": 2,
+ "signals_new": 2,
+ "new_signals": [
+  {
+   "type": "15m_fade",
+   "ticker": "KXXRP15M-26OCT061730-30",
+   "title": "XRP price up in next 15 mins?",
+   "side": "YES",
+   "market_mid": 0.765,
+   "fair": 0.843,
+   "edge": 0.078,
+   "spread": 0.01,
+   "volume": 69943.15,
+   "mins_left": 2.9,
+   "window_close_utc": "2026-10-06T21:30:00Z",
+   "new": true
+  },
+  {
+   "type": "15m_fade",
+   "ticker": "KXDOGE15M-26OCT061730-30",
+   "title": "DOGE price up in next 15 mins?",
+   "side": "NO",
+   "market_mid": 0.2,
+   "fair": 0.14,
+   "edge": -0.06,
+   "spread": 0.04,
+   "volume": 31029.98,
+   "mins_left": 2.9,
+   "window_close_utc": "2026-10-06T21:30:00Z",
+   "new": true
+  }
+ ],
+ "exits_new": 0,
+ "exits": [],
+ "graded_new": 0,
+ "new_grades": [],
+ "accuracy": {
+  "graded": 50,
+  "wins": 41,
+  "win_rate": 0.82,
+  "pnl_per_dollar_staked": 0.1747,
+  "note": "settlement per Kalshi's published result only (legacy Kraken-proxy rows excluded); gross of fees",
+  "mean_taken_price": 0.698,
+  "post_filter": {
+   "graded": 50,
+   "wins": 41,
+   "win_rate": 0.82,
+   "mean_taken_price": 0.698,
+   "pnl_per_dollar_staked": 0.1747,
+   "pnl_1usd_stake_gross": 0.1681,
+   "pnl_1usd_stake_net": 0.1423
+  },
+  "pnl_1usd_stake_gross": 0.1681,
+  "pnl_1usd_stake_net": 0.1423,
+  "no_mid_rows": 0,
+  "win_rate_priced": 0.82,
+  "mean_calibrated_probability": 0.743,
+  "mean_paper_mid_payoff": 0.122,
+  "independent_windows": 49,
+  "entry_policy_cohort": "post-agreement"
+ }
+}

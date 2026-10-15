@@ -1,0 +1,426 @@
+{
+ "ts": "2026-09-28T21:51:01Z",
+ "qualifying": 55,
+ "required": 30,
+ "disqualified": {
+  "no_entry_record": 4,
+  "no_usd_entry_price": 67,
+  "no_quote_path": 13,
+  "too_few_marks": 34
+ },
+ "sol_usd": 773.29,
+ "status": "verdict",
+ "e3": {
+  "verdict": "STOP_ALL: cumulative OOS net <= -$21 across variants; ship nothing",
+  "status": "runnable",
+  "qualifying": 55,
+  "required": 30,
+  "min_marks": 20,
+  "disqualified": {},
+  "n_is": 36,
+  "n_oos": 19,
+  "variants": {
+   "control": {
+    "IS": {
+     "n": 36,
+     "net_usd": -232.93941699957185,
+     "net_per_close_usd": -6.470539361099218,
+     "win_rate": 0.1111111111111111,
+     "censored_share": 0.08333333333333333
+    },
+    "OOS_all": {
+     "n": 19,
+     "net_usd": -150.96534675962158,
+     "net_per_close_usd": -7.945544566295872,
+     "win_rate": 0.15789473684210525
+    }
+   },
+   "ratchet": {
+    "IS": {
+     "n": 36,
+     "net_usd": -270.0254277227579,
+     "net_per_close_usd": -7.500706325632164,
+     "win_rate": 0.05555555555555555,
+     "censored_share": 0.08333333333333333
+    },
+    "OOS_all": {
+     "n": 19,
+     "net_usd": -153.09407518814064,
+     "net_per_close_usd": -8.05758290463898,
+     "win_rate": 0.0
+    },
+    "OOS": {
+     "n": 2,
+     "net_usd": -25.915946305941112,
+     "net_per_close_usd": -12.957973152970556,
+     "win_rate": 0.0,
+     "accepted_keys": [
+      "bsc:0xca7b1fd6157bfcdd6e4756b7454cac5404fce4a8:1790576573.0",
+      "bsc:0x0815d2925a34b9c79b4cce6ea804854db9d8f937:1790576936.0"
+     ],
+     "decision": "INSUFFICIENT_OOS_HISTORY"
+    }
+   },
+   "time_box": {
+    "IS": {
+     "n": 36,
+     "net_usd": -185.81329040422318,
+     "net_per_close_usd": -5.1614802890061995,
+     "win_rate": 0.19444444444444445,
+     "censored_share": 0.0
+    },
+    "OOS_all": {
+     "n": 19,
+     "net_usd": -108.14264400038584,
+     "net_per_close_usd": -5.691718105283465,
+     "win_rate": 0.10526315789473684
+    },
+    "OOS": {
+     "n": 2,
+     "net_usd": -14.90242391143536,
+     "net_per_close_usd": -7.45121195571768,
+     "win_rate": 0.0,
+     "accepted_keys": [
+      "bsc:0xca7b1fd6157bfcdd6e4756b7454cac5404fce4a8:1790576573.0",
+      "bsc:0x0815d2925a34b9c79b4cce6ea804854db9d8f937:1790576936.0"
+     ],
+     "decision": "INSUFFICIENT_OOS_HISTORY"
+    }
+   },
+   "vol_scaled": {
+    "IS": {
+     "n": 36,
+     "net_usd": -242.87313912074924,
+     "net_per_close_usd": -6.746476086687479,
+     "win_rate": 0.027777777777777776,
+     "censored_share": 0.08333333333333333,
+     "regimes": {
+      "low_default": 1,
+      "low": 10,
+      "null": 21,
+      "high": 4
+     },
+     "degenerate_regime_split": true
+    },
+    "OOS_all": {
+     "n": 19,
+     "net_usd": -140.7255405329196,
+     "net_per_close_usd": -7.406607396469453,
+     "win_rate": 0.05263157894736842
+    },
+    "OOS": {
+     "n": 2,
+     "net_usd": -19.32154118557453,
+     "net_per_close_usd": -9.660770592787266,
+     "win_rate": 0.0,
+     "accepted_keys": [
+      "bsc:0xca7b1fd6157bfcdd6e4756b7454cac5404fce4a8:1790576573.0",
+      "bsc:0x0815d2925a34b9c79b4cce6ea804854db9d8f937:1790576936.0"
+     ],
+     "decision": "INSUFFICIENT_OOS_HISTORY"
+    }
+   }
+  },
+  "frozen_variant": null,
+  "stop_all": true,
+  "cumulative_oos_net_usd": -60.13991140295101,
+  "gates": {},
+  "costs": {
+   "sol_usd": 773.29,
+   "notional_usd": 10.0,
+   "venue_fee_bps": 30.0,
+   "entry_slippage_bps": 100.0,
+   "exit_slippage_bps": 500.0,
+   "priority_fee_lamports": 2000000,
+   "priority_fee_usd": 1.54658
+  },
+  "seed": 20260927,
+  "freeze_date": "2026-09-27"
+ },
+ "advisor": {
+  "backend": "local_policy",
+  "total_net_usd": -379.88,
+  "control_total_net_usd": -383.9,
+  "delta_vs_control_usd": 4.03,
+  "wins_vs_control": 4,
+  "n": 55,
+  "kill": false
+ },
+ "positions": [
+  {
+   "mint": "0xb38c76",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0xdcf2d7",
+   "advisor_net": -2.8,
+   "control_net": -2.8
+  },
+  {
+   "mint": "0xb0e8d9",
+   "advisor_net": 0.97,
+   "control_net": 0.97
+  },
+  {
+   "mint": "0x9ebbd7",
+   "advisor_net": -12.59,
+   "control_net": -12.59
+  },
+  {
+   "mint": "0xf4efa6",
+   "advisor_net": -3.77,
+   "control_net": -3.77
+  },
+  {
+   "mint": "0x9bb3f8",
+   "advisor_net": -5.41,
+   "control_net": -5.41
+  },
+  {
+   "mint": "0xb826bd",
+   "advisor_net": 3.25,
+   "control_net": 3.72
+  },
+  {
+   "mint": "0x3381a2",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x20b457",
+   "advisor_net": -5.0,
+   "control_net": -5.0
+  },
+  {
+   "mint": "0xff8135",
+   "advisor_net": -12.35,
+   "control_net": -4.84
+  },
+  {
+   "mint": "0xed9035",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x960f6d",
+   "advisor_net": -7.35,
+   "control_net": -7.35
+  },
+  {
+   "mint": "0xbe7672",
+   "advisor_net": -6.2,
+   "control_net": -6.2
+  },
+  {
+   "mint": "0xd3030f",
+   "advisor_net": -7.85,
+   "control_net": -7.85
+  },
+  {
+   "mint": "0x6d416f",
+   "advisor_net": -1.98,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x9dcf4e",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0xe9457c",
+   "advisor_net": -1.15,
+   "control_net": -1.15
+  },
+  {
+   "mint": "0x5cfa15",
+   "advisor_net": -1.91,
+   "control_net": -1.91
+  },
+  {
+   "mint": "0xb009e9",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x17b444",
+   "advisor_net": -12.7,
+   "control_net": -12.7
+  },
+  {
+   "mint": "0x967139",
+   "advisor_net": 0.27,
+   "control_net": 0.18
+  },
+  {
+   "mint": "0x188c9e",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0xeaa65b",
+   "advisor_net": -5.2,
+   "control_net": -5.2
+  },
+  {
+   "mint": "0xaa8c3f",
+   "advisor_net": -4.0,
+   "control_net": -1.39
+  },
+  {
+   "mint": "0xeb5865",
+   "advisor_net": -2.47,
+   "control_net": -2.47
+  },
+  {
+   "mint": "0x744362",
+   "advisor_net": -5.39,
+   "control_net": -5.39
+  },
+  {
+   "mint": "0x6c06f8",
+   "advisor_net": -3.37,
+   "control_net": 4.42
+  },
+  {
+   "mint": "0x7614d4",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x1d4d44",
+   "advisor_net": -2.29,
+   "control_net": -2.29
+  },
+  {
+   "mint": "0x68beab",
+   "advisor_net": -1.37,
+   "control_net": -1.37
+  },
+  {
+   "mint": "0xe077c6",
+   "advisor_net": -2.56,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x9da30e",
+   "advisor_net": -6.58,
+   "control_net": -6.58
+  },
+  {
+   "mint": "0x968c80",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0xcd12dc",
+   "advisor_net": -5.0,
+   "control_net": -5.0
+  },
+  {
+   "mint": "0xe77a27",
+   "advisor_net": -13.22,
+   "control_net": -4.75
+  },
+  {
+   "mint": "0x7d8af9",
+   "advisor_net": -3.98,
+   "control_net": -3.98
+  },
+  {
+   "mint": "0xca7b1f",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x0815d2",
+   "advisor_net": -2.88,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x126075",
+   "advisor_net": -4.23,
+   "control_net": -4.23
+  },
+  {
+   "mint": "0xed4ea8",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0xe155a3",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x12e8ae",
+   "advisor_net": 0.21,
+   "control_net": 0.21
+  },
+  {
+   "mint": "0x9edd7c",
+   "advisor_net": -4.9,
+   "control_net": -4.9
+  },
+  {
+   "mint": "0x0f2492",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x4aaf94",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x609c99",
+   "advisor_net": -4.33,
+   "control_net": -4.33
+  },
+  {
+   "mint": "0xada934",
+   "advisor_net": 0.46,
+   "control_net": 1.9
+  },
+  {
+   "mint": "0xf97885",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x01d67c",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0x9ab148",
+   "advisor_net": -1.24,
+   "control_net": -1.24
+  },
+  {
+   "mint": "0x2f9b3a",
+   "advisor_net": 0.19,
+   "control_net": 0.19
+  },
+  {
+   "mint": "0xdc456a",
+   "advisor_net": -3.04,
+   "control_net": -3.04
+  },
+  {
+   "mint": "0xcf3ece",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  },
+  {
+   "mint": "0xe6ee9f",
+   "advisor_net": -3.3,
+   "control_net": -3.3
+  },
+  {
+   "mint": "0xffbca0",
+   "advisor_net": -13.22,
+   "control_net": -13.22
+  }
+ ]
+}
