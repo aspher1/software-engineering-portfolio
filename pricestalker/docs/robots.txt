@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mikeknight85.github.io/PriceStalker/sitemap.xml

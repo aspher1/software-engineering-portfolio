@@ -1,4 +1,0 @@
-# Runtime (everything else is the Python 3.10+ standard library)
-requests==2.31.0
-# Test suite
-pytest==9.1.1
