@@ -10,6 +10,16 @@ A curated set of software projects with source code, implementation notes, tests
 
 For **web application engineering**, start with [PortalOps AI](projects/portalops.md). For **Python, state management and reliability**, review [rhbot](projects/rhbot.md). For **React/TypeScript, desktop workflows and UI engineering**, explore [Anime Director Studio / Rainlight v8](projects/anime-director-studio.md).
 
+## Recruiter quick paths
+
+Choose a track that matches the role. Each page links specific code, documented limitations, and source-backed résumé bullets instead of broad marketing claims.
+
+- **[Frontend & Product Software Engineer](jobs/frontend-software-engineer.md):** React, Next.js, TypeScript, Electron, browser UI and responsive product workflows.
+- **[Full-Stack & Automation Engineer](jobs/full-stack-automation.md):** API routes, Auth.js, validation, human approval, workflow state and SQL/RLS design.
+- **[Python & Reliability Engineer](jobs/python-reliability.md):** Simulation, risk controls, data validation, SQLite, automated testing and reproducible research.
+
+[Technical evidence matrix](projects/technical-evidence-matrix.md) · [Reusable, verified résumé statements](resume/engineering-project-bullets.md)
+
 ## Selected projects
 
 | Project | Engineering focus | Evidence | Scope |
