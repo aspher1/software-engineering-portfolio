@@ -30,11 +30,20 @@ Choose a track that matches the role. Each page links specific code, documented 
 | **[CreditAsk](projects/creditask.md)** | Multi-step form and upload workflows, human-reviewed document drafting and payment-state experiments | [Source](https://github.com/aspher1/Credit-task) · [Tests](https://github.com/aspher1/Credit-task/tree/main/tests) · [CI](https://github.com/aspher1/Credit-task/actions/workflows/ci.yml) | Next.js / Auth.js / Stripe test mode; demo-only |
 | **[Jarvis Chart HUD](projects/jarvis.md)** | Chrome extension architecture, host-specific adapters, UI overlays, schema validation and graceful fallback | [Source](https://github.com/aspher1/Jarvis-main) · [Validation](https://github.com/aspher1/Jarvis-main/tree/main/tests) | JavaScript / MV3 / Shadow DOM; mock data |
 
-## Visual project: Rainlight animation workspace
+## Real application previews
 
-[![Rainlight v8 editor showing an anime scene, inspector, project library and frame timeline](assets/anime-director-studio-rainlight-v8.png)](projects/anime-director-studio.md)
+These are captured from local development interfaces. Click a preview to explore its technical case study. Screenshots are evidence of UI work, **not evidence of a deployed product or verified production integrations**.
 
-*Actual local application screenshot. The private repository contains the editor, original scene assets, candidate animation frames, test suites and additional production tools. [Read the technical case study](projects/anime-director-studio.md) for implementation details and outstanding animation-quality limitations.*
+| Acre: buyer and agent workflow | Rainlight: anime production editor |
+| --- | --- |
+| [![Actual Acre local buyer workspace showing sample buyer data](assets/previews/acre-workspace-preview.png)](projects/acre.md) | [![Actual Rainlight v8 editor showing project library, program monitor and animation timeline](assets/anime-director-studio-rainlight-v8.png)](projects/anime-director-studio.md) |
+| Local workspace capture with sample buyers; real property address and price excluded. [Acre case study](projects/acre.md) | Local production-editor capture with imported illustrated media; work in progress. [Rainlight case study](projects/anime-director-studio.md) |
+
+**QuarterPulse: synthetic market research workspace**
+
+[![Real Quarter research UI captured in synthetic data and paper-only mode](assets/previews/quarter-synthetic-workspace.png)](projects/quarterpulse.md)
+
+*Captured October 2026 with the synthetic feed and paper simulation clearly labeled. No live trade, return or production performance is implied. [QuarterPulse case study](projects/quarterpulse.md).*
 
 ## Engineering approach
 
