@@ -108,7 +108,7 @@ These projects have substantial application or research code. Verification varie
 
 ### [QuarterPulse Research Engine](projects/quarterpulse.md)
 
-**Python · Simulation and replay.** Market discovery, simulated order matching, fee/risk constraints and audit evidence. A private source snapshot was preserved on a review branch on October 27, 2026. Fresh tests, real trade execution and returns remain unverified.
+**Python · Simulation and replay.** Market discovery, simulated order matching, fee/risk constraints and audit evidence. Private PR #1 contains the source snapshot and offline CI workflow. **GitHub Actions offline verification passed** on commit `a20a108` (October 27, 2026), confirmed privately; PR review remains open. This passing check does **not** establish live-order safety, real-world execution, profitability or production readiness. [Verification details](projects/quarterpulse.md#verification-and-private-source-review).
 
 ### [LoopLab Video Studio](projects/looplab.md)
 
