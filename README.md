@@ -37,9 +37,19 @@ For **web application engineering**, start with [PortalOps AI](projects/portalop
 
 The strongest signal is not the number of prototypes. It is how they handle validation, failure, state transitions, human review and clearly documented limitations. Individual project pages link to code and tests so a reviewer can evaluate these decisions directly.
 
-## Additional private systems work
+## Additional systems and architecture case studies
 
-**[RelayOps: Revenue Recovery OS](projects/relayops.md)** explores a multi-tenant Next.js/Supabase workflow for home-service operations, including PostgreSQL/RLS design, provider abstractions, consent and idempotency modeling, and local verification tooling. [Read the public architecture case study](projects/relayops.md). The source remains private; no paying customers or recovered-revenue outcomes are claimed.
+These systems contain substantial application or research source, but the latest audits encountered filesystem timeouts. Their case studies separate implemented code from unverified runtime behavior. Private source repositories are reserved for selective, security-reviewed backups, not yet all populated.
+
+| Project | Engineering strengths | Current verification |
+| --- | --- | --- |
+| **[Acre: Real-Estate Intelligence](projects/acre.md)** | Next.js, TypeScript, typed listing adapters, property comparison, deterministic cost modeling, Clerk/Drizzle schema | Product-contract check passed; full build and tests pending |
+| **[QuarterPulse Research Engine](projects/quarterpulse.md)** | Python market discovery, replay, simulated order matching, fee/risk constraints, audit trails | Local test imports blocked; trading modes require independent review |
+| **[LoopLab Video Studio](projects/looplab.md)** | Cloudflare D1/R2, typed AI-provider orchestration, asynchronous jobs, signed webhooks, usage metering | Offline and paid-provider end-to-end verification pending |
+| **[Matchup Lab](projects/matchup-lab.md)** | Exact probability, seeded Monte Carlo, confidence intervals, deck validation, Next.js and Supabase | Test infrastructure exists; latest executions blocked by filesystem issues |
+| **[RelayOps: Revenue Recovery OS](projects/relayops.md)** | Next.js/Supabase architecture, PostgreSQL/RLS, consent/idempotency and provider adapters | Private source already exists; local and remote work require reconciliation |
+
+For high-tech job applications, the strongest **publicly inspectable, recently verified source** remains the featured repositories above. These additional case studies are a transparent technical record, not substitutes for completed code review, reproducible builds or production deployments.
 
 ## Additional experiments and provenance
 
