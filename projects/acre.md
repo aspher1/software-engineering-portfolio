@@ -1,5 +1,11 @@
 # Acre: Real-Estate Decision Intelligence
 
+## Application preview
+
+![Acre agent workspace showing its ranked buyer-fit view, synthetic preview buyer, source label and summary metrics](../assets/previews/acre-workspace-preview.png)
+
+*Actual local Acre UI screenshot, cropped to exclude a real listing address and asking price. The banner identifies **workspace preview / sample buyers**; “Maya Chen” is illustrative, not a customer record. Source labels and fit figures are a captured development snapshot, not a promise of current listings or a deployed service.*
+
 **Next.js application prototype · TypeScript · React · Clerk · Drizzle/PostgreSQL · RentCast · FHFA**
 
 Acre explores a buyer, seller and agent workspace that connects property discovery with evidence-aware decision support rather than presenting a property search page alone.
