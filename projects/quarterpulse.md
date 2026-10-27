@@ -27,10 +27,12 @@ The local application includes **19 illustrative fictional instruments** across 
 
 Some research branches and local checkout files include authenticated live-order adapter code. It must **not** be assumed to be safe, enabled, audited or ready for real-money trading. Market discovery, replay and simulated profitability are distinct from verified real trading performance. No profitable trading edge or live execution readiness is claimed.
 
-## Verification status
+## Verification and private source review
 
-Earlier development work documented extensive offline regression tests and isolated development branches. For this October 27 review, a fresh test run was **blocked by filesystem timeouts**, so those historical counts are not treated as a current green build. The canonical main checkout also contains uncommitted changes, multiple isolated worktrees and local paper databases. Those worktrees and databases must be excluded from any private source backup until reconciled.
+On October 27, 2026, a source snapshot was committed to the private repository `aspher1/quarterpulse-research-engine` on review branch `portfolio/source-audit-20261027`. That branch is **one commit ahead of the tracking-only `main` branch** and changes 79 paths, including Python application code, UI assets, tests and research documentation. Its `PORTFOLIO_SOURCE_AUDIT.md` records exclusions for secrets, databases, local research worktrees, logs and private captures. The snapshot is available only to reviewers granted private repository access; it is **not merged into `main`**.
 
-**Status:** Substantial research prototype. Source kept private during security and branch-history review. The case study demonstrates data provenance, risk-modeling, replay and conservative operational design, not trading returns.
+Earlier development work documented offline regression tests. The October 27 local audit could not complete a fresh test run because of filesystem timeouts; **the imported review-branch source has not been independently retested**. The original checkout still has uncommitted local changes and separate research worktrees that require reconciliation. Neither the source import nor the local UI screenshots verifies real exchange order fills, live-mode safety or financial performance.
+
+**Status:** Substantial private research prototype with a reviewable source snapshot and pending verification. This case study documents source provenance, risk modeling, replay and simulation, not a profitable strategy or production release.
 
 [Back to portfolio](../README.md)
