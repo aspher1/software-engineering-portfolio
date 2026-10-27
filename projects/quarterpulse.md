@@ -4,6 +4,10 @@
 
 QuarterPulse is an experimental system for discovering, evaluating and replaying short-duration prediction markets. Its engineering value is in separating market data, deterministic rules, execution constraints, audit evidence and researcher-facing interfaces.
 
+[![Actual Quarter workspace in synthetic-feed and paper simulation mode, with source status, research briefing and paused engine](../assets/previews/quarter-synthetic-workspace.png)](../assets/previews/quarter-synthetic-workspace.png)
+
+*Real October 2026 development capture. The interface explicitly says synthetic feed, simulation and paper mode. It does not depict live trades or validated returns.*
+
 ## Implemented concepts in the code
 
 - **Market discovery:** Kalshi catalog ingestion and selection of markets whose 15-minute cadence can be verified, with conservative restrictions for nonstandard settlement rules.
