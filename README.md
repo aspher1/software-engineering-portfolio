@@ -37,6 +37,10 @@ For **web application engineering**, start with [PortalOps AI](projects/portalop
 
 The strongest signal is not the number of prototypes. It is how they handle validation, failure, state transitions, human review and clearly documented limitations. Individual project pages link to code and tests so a reviewer can evaluate these decisions directly.
 
+## Additional private systems work
+
+**[RelayOps: Revenue Recovery OS](projects/relayops.md)** explores a multi-tenant Next.js/Supabase workflow for home-service operations, including PostgreSQL/RLS design, provider abstractions, consent and idempotency modeling, and local verification tooling. [Read the public architecture case study](projects/relayops.md). The source remains private; no paying customers or recovered-revenue outcomes are claimed.
+
 ## Additional experiments and provenance
 
 - **[FOMO Trader](https://github.com/aspher1/fomo-trader):** High-risk Solana automation research with a dry-run mode **and real-wallet execution code**. Experimental and not validated for live operation or trading performance. Not a recommended deployment.
