@@ -4,7 +4,7 @@
 
 ![Rainlight v8 editor showing project library, selected anime background, program monitor, inspector and 24 fps timeline](../assets/anime-director-studio-rainlight-v8.png)
 
-*Actual local Rainlight v8 workspace capture, October 2026. Work in progress, not a released commercial product.*
+*Actual local development-editor capture, October 2026. The scene artwork was imported; the screenshot does not claim the editor generated it. Work in progress, not a released commercial product.*
 
 ## The project
 
@@ -21,6 +21,6 @@ An animation editing and production workspace that brings a director's view of s
 
 The editor is an **active prototype**, not a production-certified animation package. The 45-second episode timing and nonempty playback ledger are distinct from proof of fluid, broadcast-ready animation: AI-generated candidate frames still require artist evaluation; not every cut has sufficient distinct drawings, and some browser-dependent QA is opt-in. External AI providers may require separate credentials, which are not part of this public portfolio. No claims of 20 finished episodes, paid customers, or commercial studio adoption are made.
 
-Both application and marketing builds were verified locally during the portfolio audit. Source code is maintained in a [private GitHub repository](https://github.com/aspher1/anime-director-studio), which requires authorization to view. I can arrange a code walkthrough or access for interview reviewers through the contact details supplied with my application.
+**Verification snapshot, October 27, 2026:** The local application and marketing builds completed. The app's main test command reported **365 passing, 0 failing and 11 skipped** checks; browser-only animation review remained separate. This is a recorded development result, not independent proof of production readiness.\n\n**Provenance:** The Rainlight visual direction originated as a design study brought into the larger application; scene art and candidate in-between artwork were imported or generated separately and remain subject to review. The marketing site uses third-party Sillage template material under its included MIT notices. This work should be evaluated for its product integration, editor/production functionality, testing and iteration, not claimed as entirely hand-drawn or authored from scratch.\n\nThe source is maintained in a **private GitHub repository**. Authorized access or an interview code walkthrough can be arranged through the contact details supplied with my application.
 
 [Back to the portfolio](../README.md)
