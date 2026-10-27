@@ -54,7 +54,6 @@ For high-tech job applications, the strongest **publicly inspectable, recently v
 ## Additional experiments and provenance
 
 - **[FOMO Trader](https://github.com/aspher1/fomo-trader):** High-risk Solana automation research with a dry-run mode **and real-wallet execution code**. Experimental and not validated for live operation or trading performance. Not a recommended deployment.
-- **[AI Scientist fork](https://github.com/aspher1/AI-Scientist):** Fork of [Sakana AI's original open-source AI Scientist](https://github.com/SakanaAI/AI-Scientist), retained for research and exploration. **Not presented as an original implementation.**
 - **[Jarvis](https://github.com/aspher1/Jarvis):** Empty legacy pointer. See [Jarvis-main](https://github.com/aspher1/Jarvis-main) for the substantive extension prototype.
 
 ## Scope, review and opportunities
