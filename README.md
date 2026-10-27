@@ -1,46 +1,50 @@
-# Software Projects | Randy
+# Randy Kawka | Software Engineering Portfolio
 
-**Full-stack applications, animation production software, automation workflows and financial technology experiments.**
+**Full-stack software · Python systems · Applied automation · Creative developer tools**
 
-I build and explore software that connects user-facing product design with practical engineering: typed web applications, auditable automation, financial market research and browser interfaces. My interests include full-stack development, animation tooling, applied AI, fintech and reliable user experiences.
+A curated set of software projects with source code, implementation notes, tests and clear boundaries between working prototypes and unshipped features. I am interested in **junior software engineering, full-stack, frontend and automation roles**.
 
-[View GitHub profile](https://github.com/aspher1)
+[GitHub profile](https://github.com/aspher1) · [Browse project case studies](projects/) · [Featured animation editor](projects/anime-director-studio.md)
 
-## Featured work
+## Where to start
 
-| Project | Focus | Technologies | Current status |
+For **web application engineering**, start with [PortalOps AI](projects/portalops.md). For **Python, state management and reliability**, review [rhbot](projects/rhbot.md). For **React/TypeScript, desktop workflows and UI engineering**, explore [Anime Director Studio / Rainlight v8](projects/anime-director-studio.md).
+
+## Selected projects
+
+| Project | Engineering focus | Evidence | Scope |
 | --- | --- | --- | --- |
-| **[Anime Director Studio / Rainlight v8](projects/anime-director-studio.md)** | Local-first anime editing workspace with a 24 fps cut timeline, exposure controls, artwork review, and desktop production tools | React, TypeScript, Vite, Electron, Node test runner, Playwright | Active prototype; private source; frame candidates pending artist review |
-| **[PortalOps AI](https://github.com/aspher1/Portalops)** | Human-supervised healthcare enrollment workflow prototype with approvals, auditing and tenant boundaries | Next.js, TypeScript, PostgreSQL design, Vitest | Synthetic-data MVP; no live payer integrations |
-| **[CreditAsk](https://github.com/aspher1/Credit-task)** | Inspection-report intake, triage, human review and repair/credit letter workflow | Next.js, TypeScript, Auth.js, Stripe test mode | Test/stub MVP; no live payments |
-| **[rhbot](https://github.com/aspher1/robinhood-bot)** | Compare paper BTC/ETH strategies, audit execution and apply risk controls | Python, SQLite, pytest, GitHub Actions | Paper-only; no broker order execution |
-| **[Jarvis Chart HUD](https://github.com/aspher1/Jarvis-main)** | Cross-site Chrome chart overlay with validated plan data and clear fallback states | JavaScript, Chrome MV3, Shadow DOM | UI prototype; mock projections |
+| **[PortalOps AI](projects/portalops.md)** | Typed, human-supervised automation, workflow state, approval policy and tenant-aware data modeling | [Source](https://github.com/aspher1/Portalops) · [Architecture](https://github.com/aspher1/Portalops/blob/main/docs/ARCHITECTURE.md) · [CI](https://github.com/aspher1/Portalops/actions/workflows/ci.yml) | Next.js / TypeScript / Vitest; synthetic-data MVP |
+| **[rhbot](projects/rhbot.md)** | Python simulation, error handling, SQLite audit records, modeled fees and operator risk controls | [Source](https://github.com/aspher1/robinhood-bot) · [Architecture](https://github.com/aspher1/robinhood-bot/blob/main/ARCHITECTURE.md) · [CI](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml) | Paper-only, no live broker orders |
+| **[Anime Director Studio / Rainlight](projects/anime-director-studio.md)** | Frame-accurate editing, animation exposure timelines, drawing tools, desktop app integration and production review | [Public case study and screenshot](projects/anime-director-studio.md) | React / TypeScript / Electron; **private source**, active prototype |
+| **[CreditAsk](projects/creditask.md)** | Multi-step form and upload workflows, human-reviewed document drafting and payment-state experiments | [Source](https://github.com/aspher1/Credit-task) · [Tests](https://github.com/aspher1/Credit-task/tree/main/tests) · [CI](https://github.com/aspher1/Credit-task/actions/workflows/ci.yml) | Next.js / Auth.js / Stripe test mode; demo-only |
+| **[Jarvis Chart HUD](projects/jarvis.md)** | Chrome extension architecture, host-specific adapters, UI overlays, schema validation and graceful fallback | [Source](https://github.com/aspher1/Jarvis-main) · [Validation](https://github.com/aspher1/Jarvis-main/tree/main/tests) | JavaScript / MV3 / Shadow DOM; mock data |
 
-### Featured animation software
+## Visual project: Rainlight animation workspace
 
-**[Anime Director Studio / Rainlight v8](projects/anime-director-studio.md)** is a private-source animation workbench spanning storyboard, compositing previews, cut selection, frame exposure, drawing, and production review. The public case study includes an actual editor screenshot, implementation details, and documented limitations. Source access can be arranged for interview reviewers through the contact channel in my application.
+[![Rainlight v8 editor showing an anime scene, inspector, project library and frame timeline](assets/anime-director-studio-rainlight-v8.png)](projects/anime-director-studio.md)
 
-### Additional research
+*Actual local application screenshot. The private repository contains the editor, original scene assets, candidate animation frames, test suites and additional production tools. [Read the technical case study](projects/anime-director-studio.md) for implementation details and outstanding animation-quality limitations.*
 
-- **[FOMO Trader](https://github.com/aspher1/fomo-trader):** Experimental Python crypto automation with test coverage, risk controls and an optional live-wallet execution path. High-risk research; not a validated trading strategy.
-- **[AI Scientist fork](https://github.com/aspher1/AI-Scientist):** A fork of [Sakana AI's original open-source project](https://github.com/SakanaAI/AI-Scientist). Included as an exploration reference, not claimed as original authorship.
+## Engineering approach
 
-## How to evaluate these projects
+| Discipline | What to inspect |
+| --- | --- |
+| **Type-safe product workflows** | Next.js / TypeScript applications, schema validation and explicit workflow states |
+| **Reliability and testing** | Vitest, pytest, offline regression tests, GitHub Actions, error handling and operator approval |
+| **Data and integrations** | SQLite audit ledgers, PostgreSQL schema/RLS design, public market-data inputs and API stubs |
+| **UI and desktop development** | React, Electron, Chrome Manifest V3, adaptive panels, frame timing and browser interaction testing |
 
-Start with each repository's README, architecture notes and tests. The projects explicitly describe what is implemented, what uses synthetic or mock data, and what would be needed to deploy safely.
+The strongest signal is not the number of prototypes. It is how they handle validation, failure, state transitions, human review and clearly documented limitations. Individual project pages link to code and tests so a reviewer can evaluate these decisions directly.
 
-**What these repositories do not claim:** production certifications, live financial returns, paying customers, or proven business outcomes. Project documentation is not a substitute for independently running the tests.
+## Additional experiments and provenance
 
-## Engineering themes
+- **[FOMO Trader](https://github.com/aspher1/fomo-trader):** High-risk Solana automation research with a dry-run mode **and real-wallet execution code**. Experimental and not validated for live operation or trading performance. Not a recommended deployment.
+- **[AI Scientist fork](https://github.com/aspher1/AI-Scientist):** Fork of [Sakana AI's original open-source AI Scientist](https://github.com/SakanaAI/AI-Scientist), retained for research and exploration. **Not presented as an original implementation.**
+- **[Jarvis](https://github.com/aspher1/Jarvis):** Empty legacy pointer. See [Jarvis-main](https://github.com/aspher1/Jarvis-main) for the substantive extension prototype.
 
-**Product engineering:** Next.js, React, TypeScript, Python, Electron desktop applications, browser extensions and workflow UIs.
+## Scope, review and opportunities
 
-**Reliability and trust:** Human approval gates, execution records, risk controls, fail-safe behavior, automated tests and documented limitations.
+Most repositories are **prototypes or research**, not deployed customer systems. Some work uses AI-assisted development tools. A green CI workflow supports the tested checks but does not establish production security, regulatory compliance, user adoption or commercial performance. Each case study distinguishes implementation from plans and known limitations.
 
-**Applied AI and data:** Inspection triage prototypes, supervised automation, financial market data and simulation.
-
-## Contact and opportunities
-
-I'm interested in junior software engineering, full-stack development, applied AI/automation and financial technology opportunities. Explore the repositories above to review specific implementations.
-
-> This index is a curated overview of the repositories linked above. It does not establish individual authorship of every line of code, production use or independent test results.
+I am exploring opportunities in **software engineering, product engineering, frontend development, workflow automation and applied AI tooling**. Public repositories are available for review; access to the private Anime Director Studio source or a code walkthrough can be arranged through contact details included with my job application.
