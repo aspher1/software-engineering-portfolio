@@ -2,21 +2,21 @@
 
 **Role focus:** Junior Python software engineer, backend/reliability-focused engineer, data tooling engineer, QA and test automation engineer.
 
-My strongest public Python example is **rhbot**, a deliberately paper-only strategy research system. It is useful engineering evidence because it makes input freshness, failure behavior, risk limits, state persistence and audit history explicit. I also explore larger private prediction-market research software, with clear limits on what has been freshly verified.
+My strongest public Python example is **rhbot**, an offline-testable, paper-only research engine. The engineering work centers on rejecting stale inputs, checking orders before simulated fills, persisting state in SQLite and providing an operator-visible audit trail. A separate private QuarterPulse project explores replay and execution-risk modeling; its current end-to-end test status is unverified.
 
 ## Selected engineering evidence
 
 | Project | Engineering substance | Inspect |
 | --- | --- | --- |
-| **[rhbot: Python paper-trading research](../projects/rhbot.md)** | Python 3.12 engine with independent simulated strategy books, Coinbase public bid/ask ingestion, SQLite state, modeled costs, operator CLI, safety checks and an audit record | [Source](https://github.com/aspher1/robinhood-bot) · [Architecture](https://github.com/aspher1/robinhood-bot/blob/main/ARCHITECTURE.md) · [Tests](https://github.com/aspher1/robinhood-bot/tree/main/tests) · [CI](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml) |
+| **[rhbot: Python paper-trading research](../projects/rhbot.md)** | Python 3.12 engine with simulated strategy accounts, Coinbase public quotes, risk decisions, SQLite hash-chained events and an operator CLI | [Risk engine](https://github.com/aspher1/robinhood-bot/blob/main/rhbot/risk.py) · [Quote handling](https://github.com/aspher1/robinhood-bot/blob/main/rhbot/data/public.py) · [SQLite ledger](https://github.com/aspher1/robinhood-bot/blob/main/rhbot/ledger.py) · [Tests](https://github.com/aspher1/robinhood-bot/tree/main/tests) · [CI](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml) |
 | **[QuarterPulse research engine](../projects/quarterpulse.md)** | Private Python modules for short-duration prediction-market discovery, paper execution/replay, fee modeling, risk rules and review interfaces | [Public architecture case study](../projects/quarterpulse.md) · **Private source; current end-to-end checks not confirmed** |
 | **[PortalOps AI](../projects/portalops.md)** | A second, TypeScript-based example of bounded retries, audit/evidence models, approval checks and automated validation | [Public source](https://github.com/aspher1/Portalops) · [Test suite](https://github.com/aspher1/Portalops/tree/main/tests) |
 
 ## Failure modes I design around
 
-- **Missing or stale market input.** rhbot rejects new simulated fills if required Coinbase quotes are missing, malformed or too old. Its documented quote threshold is 30 seconds, and the code does not silently substitute an unrelated provider's price.
-- **Deterministic order checks.** A risk module checks symbol allowlists, duplicate order IDs, exposure caps, kill state, drawdown and other constraints before recording a paper fill. Configuration can tighten its code-level hard caps.
-- **Auditable state.** SQLite stores separate simulated strategy accounts, fills and decision history; a heartbeat records cycle health. The architecture also documents a hash-chained decision log.
+- **Missing or stale market input.** rhbot rejects new simulated fills when required Coinbase quotes are missing, malformed or too old. Its documented quote threshold is 30 seconds, and an unrelated provider is not silently substituted. Inspect the [quote-source regression tests](https://github.com/aspher1/robinhood-bot/blob/main/tests/test_quote_source.py).
+- **Deterministic order checks.** The [risk engine](https://github.com/aspher1/robinhood-bot/blob/main/rhbot/risk.py) checks symbol allowlists, duplicate client-order IDs, exposure caps, kill state and drawdown before a paper fill. [Risk tests](https://github.com/aspher1/robinhood-bot/blob/main/tests/test_risk.py) exercise these boundaries; configuration can tighten code-level caps.
+- **Auditable state.** The [SQLite ledger](https://github.com/aspher1/robinhood-bot/blob/main/rhbot/ledger.py) stores separate simulated strategy accounts, fills and hash-chained append-only events; a heartbeat records cycle health. [Audit tests](https://github.com/aspher1/robinhood-bot/blob/main/tests/test_audit.py) cover integrity checks.
 - **Same rules in research and operation.** The strategy code supports offline replay and comparison against a buy-and-hold benchmark, with conservative modeled fees. This is a reproducible experiment design, not an assertion of a profitable signal.
 - **Private research with unresolved verification.** QuarterPulse has paper simulation and loss-analysis tooling, but its recent local test run was interrupted by filesystem problems. Its private branches can include authenticated execution adapters and must not be described as safe for live trading.
 
@@ -32,7 +32,7 @@ rhbot selftest
 python -m pytest
 ```
 
-Its [GitHub Actions test workflow](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml) installs the project and runs pytest. The self-test and unit tests are evidence for their specific checked paths, not proof of profitable strategies or production operations.
+Its [GitHub Actions test workflow](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml) installs the project and runs **pytest**. The local `rhbot selftest` command is documented separately in the README and is **not a CI step**. These checks support only their exercised paths, not claims of profitable strategies or production operations.
 
 ## Scope and fit
 
