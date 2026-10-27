@@ -25,53 +25,104 @@ Choose a track that matches the role. Each page links specific code, documented 
 
 ## Selected projects
 
-| Project | Engineering focus | Evidence | Scope |
-| --- | --- | --- | --- |
-| **[PortalOps AI](projects/portalops.md)** | Typed, human-supervised automation, workflow state, approval policy and tenant-aware data modeling | [Source](https://github.com/aspher1/Portalops) · [Architecture](https://github.com/aspher1/Portalops/blob/main/docs/ARCHITECTURE.md) · [CI](https://github.com/aspher1/Portalops/actions/workflows/ci.yml) | Next.js / TypeScript / Vitest; synthetic-data MVP |
-| **[rhbot](projects/rhbot.md)** | Python simulation, error handling, SQLite audit records, modeled fees and operator risk controls | [Source](https://github.com/aspher1/robinhood-bot) · [Architecture](https://github.com/aspher1/robinhood-bot/blob/main/ARCHITECTURE.md) · [CI](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml) | Paper-only, no live broker orders |
-| **[Anime Director Studio / Rainlight](projects/anime-director-studio.md)** | Frame-accurate editing, animation exposure timelines, drawing tools, desktop app integration and production review | [Public case study and screenshot](projects/anime-director-studio.md) | React / TypeScript / Electron; **private source**, active prototype |
-| **[CreditAsk](projects/creditask.md)** | Multi-step form and upload workflows, human-reviewed document drafting and payment-state experiments | [Source](https://github.com/aspher1/Credit-task) · [Tests](https://github.com/aspher1/Credit-task/tree/main/tests) · [CI](https://github.com/aspher1/Credit-task/actions/workflows/ci.yml) | Next.js / Auth.js / Stripe test mode; demo-only |
-| **[Jarvis Chart HUD](projects/jarvis.md)** | Chrome extension architecture, host-specific adapters, UI overlays, schema validation and graceful fallback | [Source](https://github.com/aspher1/Jarvis-main) · [Validation](https://github.com/aspher1/Jarvis-main/tree/main/tests) · [CI](https://github.com/aspher1/Jarvis-main/actions/workflows/ci.yml) | JavaScript / MV3 / Shadow DOM; mock data |
+These examples offer public source and test evidence, except Rainlight, whose source is private. Open each case study for implementation details and limitations.
+
+### [PortalOps AI](projects/portalops.md)
+
+**Next.js · TypeScript · Vitest · Synthetic-data MVP**
+
+Human-supervised automation with typed workflow steps, bounded retries, explicit approval stops and tenant-aware PostgreSQL/RLS design. The payer portals and activity are synthetic.
+
+**Inspect:** [Source](https://github.com/aspher1/Portalops) · [Architecture](https://github.com/aspher1/Portalops/blob/main/docs/ARCHITECTURE.md) · [CI](https://github.com/aspher1/Portalops/actions/workflows/ci.yml)
+
+### [rhbot: Python research engine](projects/rhbot.md)
+
+**Python · SQLite · pytest · Paper-only**
+
+Simulates strategy accounts with modeled fees, stale-data safeguards, exposure limits, operator controls and auditable state. It cannot place live Robinhood orders.
+
+**Inspect:** [Source](https://github.com/aspher1/robinhood-bot) · [Architecture](https://github.com/aspher1/robinhood-bot/blob/main/ARCHITECTURE.md) · [CI](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml)
+
+### [Anime Director Studio / Rainlight](projects/anime-director-studio.md)
+
+**React · TypeScript · Electron · Private-source prototype**
+
+Animation editor exploring frame-level playback, exposure timelines, drawing tools, desktop workflows and production review. The linked case study includes an actual local editor capture; imported artwork is identified as such.
+
+**Inspect:** [Case study, screenshot and verification scope](projects/anime-director-studio.md). Source review can be arranged where authorized.
+
+### [CreditAsk](projects/creditask.md)
+
+**Next.js · Auth.js · Stripe test mode · Demo-only**
+
+Guided home-inspection intake with file uploads, human-reviewed drafts, payment-state experiments and gated printable output. The current triage does not parse the uploaded PDF or photos into findings.
+
+**Inspect:** [Source](https://github.com/aspher1/Credit-task) · [Tests](https://github.com/aspher1/Credit-task/tree/main/tests) · [CI](https://github.com/aspher1/Credit-task/actions/workflows/ci.yml)
+
+### [Jarvis Chart HUD](projects/jarvis.md)
+
+**JavaScript · Chrome Manifest V3 · Shadow DOM · Mock data**
+
+Browser extension prototype with chart-host adapters, pointer-safe overlays, plan-value validation and a universal fallback. It has no live market feed or broker integration.
+
+**Inspect:** [Source](https://github.com/aspher1/Jarvis-main) · [Offline validation](https://github.com/aspher1/Jarvis-main/tree/main/tests) · [CI](https://github.com/aspher1/Jarvis-main/actions/workflows/ci.yml)
 
 ## Real application previews
 
-These are captured from local development interfaces. Click a preview to explore its technical case study. Screenshots are evidence of UI work, **not evidence of a deployed product or verified production integrations**.
+Actual local development captures, with their technical case studies one tap away. Screenshots document interface work, **not deployed products, verified integrations or customer use**.
 
-| Acre: buyer and agent workflow | Rainlight: anime production editor |
-| --- | --- |
-| [![Actual Acre local buyer workspace showing sample buyer data](assets/previews/acre-workspace-preview.png)](projects/acre.md) | [![Actual Rainlight v8 editor showing project library, program monitor and animation timeline](assets/anime-director-studio-rainlight-v8.png)](projects/anime-director-studio.md) |
-| Local workspace capture with sample buyers; real property address and price excluded. [Acre case study](projects/acre.md) | Local production-editor capture with imported illustrated media; work in progress. [Rainlight case study](projects/anime-director-studio.md) |
+### [Acre: buyer and agent workspace](projects/acre.md)
 
-**QuarterPulse: synthetic market research workspace**
+[![Acre local agent workspace with illustrative sample buyers](assets/previews/acre-workspace-preview.png)](projects/acre.md)
 
-[![Real Quarter research UI captured in synthetic data and paper-only mode](assets/previews/quarter-synthetic-workspace.png)](projects/quarterpulse.md)
+*Local UI with sample buyers. A real listing address and asking price were excluded from the capture. [Acre case study](projects/acre.md).*
 
-*Captured October 2026 with the synthetic feed and paper simulation clearly labeled. See also the [real mobile paper-positions screenshot](assets/previews/quarter-synthetic-paper-positions-mobile.png), which shows fictional practice positions. No live trading, verified return or production performance is implied. [QuarterPulse case study and source-review status](projects/quarterpulse.md).*
+### [Rainlight: anime production editor](projects/anime-director-studio.md)
+
+[![Rainlight v8 local editor with project library, program monitor and frame-based timeline](assets/anime-director-studio-rainlight-v8.png)](projects/anime-director-studio.md)
+
+*Local prototype showing imported illustrated scene artwork, editor panels and a timeline. The editor is not a released production package. [Rainlight case study](projects/anime-director-studio.md).*
+
+### [QuarterPulse: synthetic market research workspace](projects/quarterpulse.md)
+
+[![QuarterPulse local research dashboard labeled synthetic feed and paper simulation](assets/previews/quarter-synthetic-workspace.png)](projects/quarterpulse.md)
+
+*October 2026 local research capture. [Mobile paper-positions preview](assets/previews/quarter-synthetic-paper-positions-mobile.png) shows fictional practice positions. No real trades, verified returns or production performance are implied. [QuarterPulse case study and source-review status](projects/quarterpulse.md).*
 
 ## Engineering approach
 
-| Discipline | What to inspect |
-| --- | --- |
-| **Type-safe product workflows** | Next.js / TypeScript applications, schema validation and explicit workflow states |
-| **Reliability and testing** | Vitest, pytest, offline regression tests, GitHub Actions, error handling and operator approval |
-| **Data and integrations** | SQLite audit ledgers, PostgreSQL schema/RLS design, public market-data inputs and API stubs |
-| **UI and desktop development** | React, Electron, Chrome Manifest V3, adaptive panels, frame timing and browser interaction testing |
+- **Type-safe product workflows:** Next.js and TypeScript applications, input validation, explicit workflow states and human review.
+- **Reliability and testing:** Vitest, pytest, offline regression tests, GitHub Actions, error handling and approval boundaries.
+- **Data and integrations:** SQLite audit ledgers, PostgreSQL schema/RLS design, public market-data inputs and API stubs.
+- **UI and desktop development:** React, Electron, Chrome Manifest V3, adaptive panels, frame timing and browser interaction testing.
 
 The strongest signal is not the number of prototypes. It is how they handle validation, failure, state transitions, human review and clearly documented limitations. Individual project pages link to code and tests so a reviewer can evaluate these decisions directly.
 
 ## Additional systems and architecture case studies
 
-These projects have substantial application or research code. Verification varies by project; the case studies document successful checks, checks blocked during the October 27, 2026 audit, and runtime behavior that still needs review. Private source is available for authorized walkthroughs where arranged.
+These projects have substantial application or research code. Verification varies by project; the case studies distinguish completed checks, checks blocked during the October 27, 2026 audit, and runtime behavior still awaiting review. Private source can be discussed in authorized walkthroughs.
 
-| Project | Engineering strengths | Current verification |
-| --- | --- | --- |
-| **[Acre: Real-Estate Intelligence](projects/acre.md)** | Next.js, TypeScript, typed listing adapters, property comparison, deterministic cost modeling, Clerk/Drizzle schema | Product-contract check passed; full build and tests pending |
-| **[QuarterPulse Research Engine](projects/quarterpulse.md)** | Python market discovery, replay, simulated order matching, fee/risk constraints, audit trails | Private source snapshot on review branch (October 27); fresh tests, live execution and returns remain unverified |
-| **[LoopLab Video Studio](projects/looplab.md)** | Cloudflare D1/R2, typed AI-provider orchestration, asynchronous jobs, signed webhooks, usage metering | Offline and paid-provider end-to-end verification pending |
-| **[Matchup Lab](projects/matchup-lab.md)** | Exact probability, seeded Monte Carlo, confidence intervals, deck validation, Next.js and Supabase | Test infrastructure exists; latest executions blocked by filesystem issues |
-| **[RelayOps: Revenue Recovery OS](projects/relayops.md)** | Next.js/Supabase architecture, PostgreSQL/RLS, consent/idempotency and provider adapters | Private source already exists; local and remote work require reconciliation |
+### [Acre: Real-Estate Intelligence](projects/acre.md)
 
-For high-tech job applications, the strongest **publicly inspectable, recently verified source** remains the featured repositories above. These additional case studies are a transparent technical record, not substitutes for completed code review, reproducible builds or production deployments.
+**Next.js · TypeScript · Clerk/Drizzle.** Typed property-listing adapters, comparison tools, deterministic monthly-cost modeling and source-aware data presentation. An offline product-contract check passed; a full build and test suite remain pending.
+
+### [QuarterPulse Research Engine](projects/quarterpulse.md)
+
+**Python · Simulation and replay.** Market discovery, simulated order matching, fee/risk constraints and audit evidence. A private source snapshot was preserved on a review branch on October 27, 2026. Fresh tests, real trade execution and returns remain unverified.
+
+### [LoopLab Video Studio](projects/looplab.md)
+
+**Cloudflare D1/R2 · Typed media workflows.** Asynchronous provider orchestration, signed webhooks, job state and usage metering. Offline end-to-end and paid-provider verification remain pending.
+
+### [Matchup Lab](projects/matchup-lab.md)
+
+**Next.js · Supabase · Probability research.** Exact probability, seeded Monte Carlo, confidence intervals and deck validation. Tests are present, but the latest executions were blocked by filesystem issues.
+
+### [RelayOps: Revenue Recovery OS](projects/relayops.md)
+
+**Next.js · Supabase/PostgreSQL.** Tenant-aware schema/RLS design, consent and idempotency rules, and provider adapters. The private repository contains source; local and remote revisions still require reconciliation.
+
+For high-tech job applications, the strongest **publicly inspectable, recently verified source** remains the featured repositories above. These additional case studies document research and architecture rather than completed code review, reproducible builds or production deployments.
 
 ## Scope, review and opportunities
 
