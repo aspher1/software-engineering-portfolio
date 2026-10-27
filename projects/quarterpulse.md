@@ -8,6 +8,12 @@ QuarterPulse is an experimental system for discovering, evaluating and replaying
 
 *Real October 2026 development capture. The interface explicitly says synthetic feed, simulation and paper mode. It does not depict live trades or validated returns.*
 
+### Mobile paper-workspace evidence
+
+[![QuarterPulse mobile positions screen showing illustrative synthetic-practice positions and paper-mode exit controls](../assets/previews/quarter-synthetic-paper-positions-mobile.png)](../assets/previews/quarter-synthetic-paper-positions-mobile.png)
+
+*Real local mobile browser capture, October 16, 2026. The positions, example instrument names, prices and exit controls appear under the application's explicit **Synthetic feed**, **Paper** and **Simulation workspace** labels. These fictional practice examples are not live holdings, customer records or evidence of investment performance.*
+
 ## Implemented concepts in the code
 
 - **Market discovery:** Kalshi catalog ingestion and selection of markets whose 15-minute cadence can be verified, with conservative restrictions for nonstandard settlement rules.
