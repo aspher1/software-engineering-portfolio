@@ -17,6 +17,12 @@ An animation editing and production workspace that brings a director's view of s
 - **Desktop and engineering:** React/TypeScript frontend, Vite builds, Electron host, local project-oriented workflows, automated tests and browser QA.
 - **Production experiment:** A 45-second, 20-cut, 1,080-frame Rainlight pilot with source art, candidate in-between artwork, manifests and assembly tests.
 
+### Production workflow capture
+
+[![Rainlight X-sheet Exchange panel showing the source-art manifest import action and an empty cut with zero layers and drawings](../assets/previews/rainlight-xsheet-exchange-empty.png)](../assets/previews/rainlight-xsheet-exchange-empty.png)
+
+*Actual local Rainlight production-tools capture, October 25, 2026. This is the X-sheet Exchange **empty state**: the selected cut has zero layers, drawings and holds, so packaging is disabled. The screenshot illustrates the local export/import controls and file-format guidance, not a completed artwork exchange.*
+
 ## Honest scope and verification
 
 The editor is an **active prototype**, not a production-certified animation package. The 45-second episode timing and nonempty playback ledger are distinct from proof of fluid, broadcast-ready animation: AI-generated candidate frames still require artist evaluation; not every cut has sufficient distinct drawings, and some browser-dependent QA is opt-in. External AI providers may require separate credentials, which are not part of this public portfolio. No claims of 20 finished episodes, paid customers, or commercial studio adoption are made.
