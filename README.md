@@ -1,8 +1,8 @@
 # Software Projects | Randy
 
-**Full-stack applications, automation workflows and financial technology experiments.**
+**Full-stack applications, animation production software, automation workflows and financial technology experiments.**
 
-I build and explore software that connects user-facing product design with practical engineering: typed web applications, auditable automation, financial market research and browser interfaces. My interests include full-stack development, applied AI, fintech and reliable user experiences.
+I build and explore software that connects user-facing product design with practical engineering: typed web applications, auditable automation, financial market research and browser interfaces. My interests include full-stack development, animation tooling, applied AI, fintech and reliable user experiences.
 
 [View GitHub profile](https://github.com/aspher1)
 
@@ -10,10 +10,15 @@ I build and explore software that connects user-facing product design with pract
 
 | Project | Focus | Technologies | Current status |
 | --- | --- | --- | --- |
+| **[Anime Director Studio / Rainlight v8](projects/anime-director-studio.md)** | Local-first anime editing workspace with a 24 fps cut timeline, exposure controls, artwork review, and desktop production tools | React, TypeScript, Vite, Electron, Node test runner, Playwright | Active prototype; private source; frame candidates pending artist review |
 | **[PortalOps AI](https://github.com/aspher1/Portalops)** | Human-supervised healthcare enrollment workflow prototype with approvals, auditing and tenant boundaries | Next.js, TypeScript, PostgreSQL design, Vitest | Synthetic-data MVP; no live payer integrations |
 | **[CreditAsk](https://github.com/aspher1/Credit-task)** | Inspection-report intake, triage, human review and repair/credit letter workflow | Next.js, TypeScript, Auth.js, Stripe test mode | Test/stub MVP; no live payments |
 | **[rhbot](https://github.com/aspher1/robinhood-bot)** | Compare paper BTC/ETH strategies, audit execution and apply risk controls | Python, SQLite, pytest, GitHub Actions | Paper-only; no broker order execution |
 | **[Jarvis Chart HUD](https://github.com/aspher1/Jarvis-main)** | Cross-site Chrome chart overlay with validated plan data and clear fallback states | JavaScript, Chrome MV3, Shadow DOM | UI prototype; mock projections |
+
+### Featured animation software
+
+**[Anime Director Studio / Rainlight v8](projects/anime-director-studio.md)** is a private-source animation workbench spanning storyboard, compositing previews, cut selection, frame exposure, drawing, and production review. The public case study includes an actual editor screenshot, implementation details, and documented limitations. Source access can be arranged for interview reviewers through the contact channel in my application.
 
 ### Additional research
 
@@ -28,7 +33,7 @@ Start with each repository's README, architecture notes and tests. The projects 
 
 ## Engineering themes
 
-**Product engineering:** Next.js, React, TypeScript, Python, browser extensions and workflow UIs.
+**Product engineering:** Next.js, React, TypeScript, Python, Electron desktop applications, browser extensions and workflow UIs.
 
 **Reliability and trust:** Human approval gates, execution records, risk controls, fail-safe behavior, automated tests and documented limitations.
 
