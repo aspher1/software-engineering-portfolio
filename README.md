@@ -1,5 +1,8 @@
 # Randy Kawka | Software Engineering Portfolio
 
+[![Portfolio link and screenshot integrity](https://github.com/aspher1/software-engineering-portfolio/actions/workflows/portfolio-check.yml/badge.svg)](https://github.com/aspher1/software-engineering-portfolio/actions/workflows/portfolio-check.yml)
+
+
 **Full-stack software · Python systems · Applied automation · Creative developer tools**
 
 A curated set of software projects with source code, implementation notes, tests and clear boundaries between working prototypes and unshipped features. I am interested in **junior software engineering, full-stack, frontend and automation roles**.
