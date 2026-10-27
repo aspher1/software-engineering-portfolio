@@ -5,6 +5,10 @@
 ![Acre agent workspace showing its ranked buyer-fit view, synthetic preview buyer, source label and summary metrics](../assets/previews/acre-workspace-preview.png)
 
 *Actual local Acre UI screenshot, cropped to exclude a real listing address and asking price. The banner identifies **workspace preview / sample buyers**; “Maya Chen” is illustrative, not a customer record. Source labels and fit figures are a captured development snapshot, not a promise of current listings or a deployed service.*
+![Ask Acre guided questions and deterministic monthly-cost planner in the actual Acre web UI](../assets/previews/acre-ask-cost-tools.png)
+
+*Actual local UI capture of Ask Acre and the monthly-cost calculator. This captured configuration states that AI is unavailable, so Acre displays built-in guidance; calculator figures are illustrative assumptions, **not** a lender quote or verified property expense. Missing tax, HOA and insurance inputs remain explicitly unknown.*
+
 
 **Next.js application prototype · TypeScript · React · Clerk · Drizzle/PostgreSQL · RentCast · FHFA**
 
