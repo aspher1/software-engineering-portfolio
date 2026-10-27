@@ -46,7 +46,7 @@ These are captured from local development interfaces. Click a preview to explore
 
 [![Real Quarter research UI captured in synthetic data and paper-only mode](assets/previews/quarter-synthetic-workspace.png)](projects/quarterpulse.md)
 
-*Captured October 2026 with the synthetic feed and paper simulation clearly labeled. No live trade, return or production performance is implied. [QuarterPulse case study](projects/quarterpulse.md).*
+*Captured October 2026 with the synthetic feed and paper simulation clearly labeled. See also the [real mobile paper-positions screenshot](assets/previews/quarter-synthetic-paper-positions-mobile.png), which shows fictional practice positions. No live trading, verified return or production performance is implied. [QuarterPulse case study and source-review status](projects/quarterpulse.md).*
 
 ## Engineering approach
 
@@ -66,7 +66,7 @@ These projects have substantial application or research code. Verification varie
 | Project | Engineering strengths | Current verification |
 | --- | --- | --- |
 | **[Acre: Real-Estate Intelligence](projects/acre.md)** | Next.js, TypeScript, typed listing adapters, property comparison, deterministic cost modeling, Clerk/Drizzle schema | Product-contract check passed; full build and tests pending |
-| **[QuarterPulse Research Engine](projects/quarterpulse.md)** | Python market discovery, replay, simulated order matching, fee/risk constraints, audit trails | Local test imports blocked; trading modes require independent review |
+| **[QuarterPulse Research Engine](projects/quarterpulse.md)** | Python market discovery, replay, simulated order matching, fee/risk constraints, audit trails | Private source snapshot on review branch (October 27); fresh tests, live execution and returns remain unverified |
 | **[LoopLab Video Studio](projects/looplab.md)** | Cloudflare D1/R2, typed AI-provider orchestration, asynchronous jobs, signed webhooks, usage metering | Offline and paid-provider end-to-end verification pending |
 | **[Matchup Lab](projects/matchup-lab.md)** | Exact probability, seeded Monte Carlo, confidence intervals, deck validation, Next.js and Supabase | Test infrastructure exists; latest executions blocked by filesystem issues |
 | **[RelayOps: Revenue Recovery OS](projects/relayops.md)** | Next.js/Supabase architecture, PostgreSQL/RLS, consent/idempotency and provider adapters | Private source already exists; local and remote work require reconciliation |
@@ -77,4 +77,4 @@ For high-tech job applications, the strongest **publicly inspectable, recently v
 
 Most repositories are **prototypes or research**, not deployed customer systems. Some work uses AI-assisted development tools. A green CI workflow supports the tested checks but does not establish production security, regulatory compliance, user adoption or commercial performance. Each case study distinguishes implementation from plans and known limitations.
 
-I am exploring opportunities in **software engineering, product engineering, frontend development, workflow automation and applied AI tooling**. Public repositories are available for review; access to the private Anime Director Studio source or a code walkthrough can be arranged through contact details included with my job application.
+I am exploring opportunities in **software engineering, product engineering, frontend development, workflow automation and applied AI tooling**. Public repositories and tests are available for review. For private projects, sanitized code walkthroughs or access to reviewed source branches can be arranged where authorized, using the contact details included with my job application.
