@@ -1,13 +1,13 @@
 # Randy Kawka | Software Engineering Portfolio
 
-[![Portfolio link and screenshot integrity](https://github.com/aspher1/software-engineering-portfolio/actions/workflows/portfolio-check.yml/badge.svg)](https://github.com/aspher1/software-engineering-portfolio/actions/workflows/portfolio-check.yml)
+[![Portfolio local Markdown link check](https://github.com/aspher1/software-engineering-portfolio/actions/workflows/portfolio-check.yml/badge.svg)](https://github.com/aspher1/software-engineering-portfolio/actions/workflows/portfolio-check.yml)
 
 
 **Full-stack software · Python systems · Applied automation · Creative developer tools**
 
 A curated set of software projects with source code, implementation notes, tests and clear boundaries between working prototypes and unshipped features. I am interested in **junior software engineering, full-stack, frontend and automation roles**.
 
-[GitHub profile](https://github.com/aspher1) · [Browse project case studies](projects/) · [Featured animation editor](projects/anime-director-studio.md)
+[GitHub profile](https://github.com/aspher1) · **Role paths:** [Frontend](jobs/frontend-software-engineer.md) · [Full-stack](jobs/full-stack-automation.md) · [Python / reliability](jobs/python-reliability.md) · [All case studies](projects/)
 
 ## Where to start
 
@@ -31,7 +31,7 @@ Choose a track that matches the role. Each page links specific code, documented 
 | **[rhbot](projects/rhbot.md)** | Python simulation, error handling, SQLite audit records, modeled fees and operator risk controls | [Source](https://github.com/aspher1/robinhood-bot) · [Architecture](https://github.com/aspher1/robinhood-bot/blob/main/ARCHITECTURE.md) · [CI](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml) | Paper-only, no live broker orders |
 | **[Anime Director Studio / Rainlight](projects/anime-director-studio.md)** | Frame-accurate editing, animation exposure timelines, drawing tools, desktop app integration and production review | [Public case study and screenshot](projects/anime-director-studio.md) | React / TypeScript / Electron; **private source**, active prototype |
 | **[CreditAsk](projects/creditask.md)** | Multi-step form and upload workflows, human-reviewed document drafting and payment-state experiments | [Source](https://github.com/aspher1/Credit-task) · [Tests](https://github.com/aspher1/Credit-task/tree/main/tests) · [CI](https://github.com/aspher1/Credit-task/actions/workflows/ci.yml) | Next.js / Auth.js / Stripe test mode; demo-only |
-| **[Jarvis Chart HUD](projects/jarvis.md)** | Chrome extension architecture, host-specific adapters, UI overlays, schema validation and graceful fallback | [Source](https://github.com/aspher1/Jarvis-main) · [Validation](https://github.com/aspher1/Jarvis-main/tree/main/tests) | JavaScript / MV3 / Shadow DOM; mock data |
+| **[Jarvis Chart HUD](projects/jarvis.md)** | Chrome extension architecture, host-specific adapters, UI overlays, schema validation and graceful fallback | [Source](https://github.com/aspher1/Jarvis-main) · [Validation](https://github.com/aspher1/Jarvis-main/tree/main/tests) · [CI](https://github.com/aspher1/Jarvis-main/actions/workflows/ci.yml) | JavaScript / MV3 / Shadow DOM; mock data |
 
 ## Real application previews
 
@@ -61,7 +61,7 @@ The strongest signal is not the number of prototypes. It is how they handle vali
 
 ## Additional systems and architecture case studies
 
-These systems contain substantial application or research source, but the latest audits encountered filesystem timeouts. Their case studies separate implemented code from unverified runtime behavior. Private source repositories are reserved for selective, security-reviewed backups, not yet all populated.
+These projects have substantial application or research code. Verification varies by project; the case studies document successful checks, checks blocked during the October 27, 2026 audit, and runtime behavior that still needs review. Private source is available for authorized walkthroughs where arranged.
 
 | Project | Engineering strengths | Current verification |
 | --- | --- | --- |
@@ -72,11 +72,6 @@ These systems contain substantial application or research source, but the latest
 | **[RelayOps: Revenue Recovery OS](projects/relayops.md)** | Next.js/Supabase architecture, PostgreSQL/RLS, consent/idempotency and provider adapters | Private source already exists; local and remote work require reconciliation |
 
 For high-tech job applications, the strongest **publicly inspectable, recently verified source** remains the featured repositories above. These additional case studies are a transparent technical record, not substitutes for completed code review, reproducible builds or production deployments.
-
-## Additional experiments and provenance
-
-- **[FOMO Trader](https://github.com/aspher1/fomo-trader):** High-risk Solana automation research with a dry-run mode **and real-wallet execution code**. Experimental and not validated for live operation or trading performance. Not a recommended deployment.
-- **[Jarvis](https://github.com/aspher1/Jarvis):** Empty legacy pointer. See [Jarvis-main](https://github.com/aspher1/Jarvis-main) for the substantive extension prototype.
 
 ## Scope, review and opportunities
 
