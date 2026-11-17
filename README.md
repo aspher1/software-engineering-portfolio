@@ -5,13 +5,17 @@
 
 **Full-stack software · Python systems · Applied automation · Creative developer tools**
 
-A curated set of software projects with source code, implementation notes, tests and clear boundaries between working prototypes and unshipped features. I am interested in **junior software engineering, full-stack, frontend and automation roles**.
+A curated set of software projects with source code, implementation notes, tests and clear boundaries between working prototypes and unshipped features. I’m looking for **software engineering internships and junior roles** in full-stack, frontend, or automation.
 
 [GitHub profile](https://github.com/aspher1) · **Role paths:** [Frontend](jobs/frontend-software-engineer.md) · [Full-stack](jobs/full-stack-automation.md) · [Python / reliability](jobs/python-reliability.md) · [All case studies](projects/)
 
-## Where to start
+## Start here
 
-For **web application engineering**, start with [PortalOps AI](projects/portalops.md). For **Python, state management and reliability**, review [rhbot](projects/rhbot.md). For **React/TypeScript, desktop workflows and UI engineering**, explore [Anime Director Studio / Rainlight v8](projects/anime-director-studio.md).
+- **[PortalOps AI](projects/portalops.md) · Full-stack and automation.** See the typed workflow executor, explicit approval gates, and focused Vitest coverage.
+- **[rhbot](projects/rhbot.md) · Python and reliability.** See how the paper simulator handles stale quotes, exposure limits, and audit state.
+- **[Rainlight](projects/anime-director-studio.md) · Frontend and desktop.** See the local editor UI, frame-addressed timeline, and testing notes. Public case study; private source.
+
+Each case study points to the best available evidence. No account is needed for the public repositories or case studies.
 
 ## Recruiter quick paths
 
@@ -25,7 +29,7 @@ Choose a track that matches the role. Each page links specific code, documented 
 
 ## Selected projects
 
-These examples offer public source and test evidence, except Rainlight, whose source is private. Open each case study for implementation details and limitations.
+Most projects below have public source and tests. Rainlight has a public case study and private source. Open each case study for implementation details and limitations.
 
 ### [PortalOps AI](projects/portalops.md)
 
