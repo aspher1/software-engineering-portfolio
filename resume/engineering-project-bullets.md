@@ -17,7 +17,7 @@ This is a **source-backed wording library** for tailoring junior software engine
 ## Junior Python / reliability / data engineer
 
 - **rhbot:** Developed a Python/SQLite paper-trading research engine comparing independent simulated BTC/ETH strategies with modeled fees, data freshness checks, drawdown controls, operator kill switches and an audit trail. Risk and safety tests run in CI; real brokerage orders are disabled. [Source](https://github.com/aspher1/robinhood-bot) · [CI](https://github.com/aspher1/robinhood-bot/actions/workflows/ci.yml)
-- **QuarterPulse:** Designed a Python market-research and replay prototype with fee-aware simulated fills, order-book data modeling, risk limits and evidence capture. The 19 test instruments are synthetic and latest test runs were blocked by local filesystem issues; **do not describe this as a profitable or trading-ready bot**. [Case study](../projects/quarterpulse.md)
+- **QuarterPulse:** Designed a Python market-research and replay prototype with fee-aware simulated fills, order-book data modeling, risk limits and evidence capture. Offline CI checks passed on private `main` at `31e825f` (October 27, 2026). The test instruments are synthetic; this does not establish profitability, live execution, or production readiness. [Case study](../projects/quarterpulse.md)
 - **Matchup Lab:** Implemented exact probability and seeded Monte Carlo components for card-game deck analysis, including multivariate draw models and Wilson confidence intervals within a Next.js/TypeScript application. Auth/database and tests are present but fresh verification remains pending. [Case study](../projects/matchup-lab.md)
 
 ## How to use these responsibly
@@ -25,3 +25,4 @@ This is a **source-backed wording library** for tailoring junior software engine
 A technical résumé works best when each project statement is tied to source code, a design tradeoff and a verification result. Link to the actual public code for the first group; use the public case-study link for private projects. Avoid unsupported metrics such as users, revenue, returns, time savings, accuracy or model-training results. If you used AI-assisted development, describe your specific product decisions, implementation review, debugging, testing, and integration work accurately.
 
 [Return to portfolio](../README.md)
+
