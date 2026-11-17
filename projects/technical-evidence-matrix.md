@@ -12,7 +12,7 @@ This index separates **publicly inspectable implementation**, **documented autom
 | **[RelayOps](relayops.md)** | **Private**; [architecture case study](relayops.md) public | Next.js, TypeScript, Supabase/PostgreSQL schema/RLS, provider ports, consent/idempotency rules, Vitest/Playwright scaffolding | Commands and tests in private source; local and remote revisions need reconciliation | No verified customer deployments or recovered revenue |
 | **[Acre](acre.md)** | **Private**; [case study and local UI captures](acre.md#application-preview) public | Next.js, TypeScript, RentCast normalization, source/freshness metadata, deterministic property cost/fit models | Local product-contract check reported; build and complete regression testing remain pending | Not an MLS feed; provider connectivity depends on secrets/configuration |
 | **[LoopLab](looplab.md)** | **Private**; [case study](looplab.md) public | React/TypeScript, Cloudflare D1/R2 design, AI/media provider job orchestration, webhooks and provenance | Test infrastructure exists; complete paid media generation unverified | Provider keys and costs required for external production |
-| **[QuarterPulse](quarterpulse.md)** | **Private**; [case study and synthetic-mode UI capture](quarterpulse.md) public | Python paper-market discovery/replay, risk modeling, fee/loss analysis | Historical regression work; latest local test blocked by filesystem errors | No verified profitability, live-trading safety or finished release |
+| **[QuarterPulse](quarterpulse.md)** | **Private**; [case study and synthetic-mode UI capture](quarterpulse.md) public | Python paper-market discovery/replay, risk modeling, fee/loss analysis | Offline GitHub Actions checks passed on private main commit `31e825f` (Oct 27, 2026); earlier local rerun was blocked | No verified profitability, live-trading safety or finished release |
 
 ## Direct code review anchors
 
@@ -27,8 +27,9 @@ These links lead to actual files on public default branches, so a reviewer can i
 
 - **[Frontend / product software engineering](../jobs/frontend-software-engineer.md):** Jarvis and Rainlight for interface behavior, then CreditAsk and PortalOps for React application workflows.
 - **[Full-stack / automation engineering](../jobs/full-stack-automation.md):** PortalOps and CreditAsk for publicly inspectable Next.js code; RelayOps for deeper private database/provider design.
-- **[Python / data / reliability engineering](../jobs/python-reliability.md):** rhbot for public Python, SQLite, safety invariants and pytest; QuarterPulse for explicitly unverified private research architecture.
+- **[Python / data / reliability engineering](../jobs/python-reliability.md):** rhbot for public Python, SQLite, safety invariants and pytest; QuarterPulse for replay and matching design with offline CI evidence summarized in its public case study.
 
 Reviewers should judge the linked source and tests directly. Green CI is evidence about the configured checks on that commit; it does not imply production security or comprehensive validation.
 
 [Back to portfolio](../README.md)
+
